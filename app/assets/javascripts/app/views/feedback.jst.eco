@@ -1,5 +1,5 @@
 <header>
-  <h2>Feedback</h2>
+  <h2>Sugjerime</h2>
 </header>
 <form>
   <article>
@@ -7,6 +7,6 @@
     <textarea required></textarea>
   </article>
   <footer>
-    <button type="submit" class="btn">Send Feedback</button>
+    <button type="submit" class="btn">Dergo Komentin</button>
   </footer>
 </form>

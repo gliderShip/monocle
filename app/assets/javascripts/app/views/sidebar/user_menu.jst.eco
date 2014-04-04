@@ -1,16 +1,16 @@
-<li><a data-name="profile">Profile</a></li>
+<li><a data-name="profile">Profili</a></li>
 
 <li>
   <a data-name="invite">
-    Invites
+    Ftesat
     (<strong><%= @user.get('invites_count') %></strong>)
   </a>
 </li>
 
 
-<li><a data-name="feedback">Feedback</a></li>
+<li><a data-name="feedback">Sugjerime</a></li>
 
 <li class="divider"></li>
-<li><a data-name="change_password">Change Password</a></li>
+<li><a data-name="change_password">Ndrysho Fjalekalimin</a></li>
 
 <li><a href="/logout">Logout</a></li>

@@ -5,8 +5,8 @@
 <nav>
     <div class="clip">
       <div class="clipped">
-        <a class="popular active" data-state="popular">Hot</a>
-        <a class="newest" data-state="newest">New</a>
+        <a class="popular active" data-state="popular">Kryesoret</a>
+        <a class="newest" data-state="newest">Te Fundit</a>
         <span class="sep"></span>
         <input type="search" tabindex="1" incremental>
       </div>
@@ -36,5 +36,5 @@
   <% end %>
 
   <span></span>
-  <a class="add btn newPost right" title="New post"> </a> 
+  <a class="add btn newPost right" title="Posto Artikull"> </a> 
 </footer>

@@ -1,15 +1,15 @@
 <header>
-  <h2>New Post</h2>
+  <h2>Posto nje artikull</h2>
 </header>
 
 <form>
   <article>
     <input type="url" name="url" placeholder="URL" required autofocus>
-    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="title" placeholder="Titulli" required>
 
   </article>
 
   <footer>
-    <button type="submit" class="btn">Create</button>
+    <button type="submit" class="btn">Krijoje</button>
   </footer>
 </form>

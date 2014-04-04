@@ -3,5 +3,5 @@
 <% end %>
 
 <% unless @posts.length: %>
-  <h3 class="empty">No Posts</h3>
+  <h3 class="empty">Asnjë Postim</h3>
 <% end %>

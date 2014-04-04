@@ -1,28 +1,28 @@
 <header>
-  <h2>Sign In or Create Account</h2>
+  <h2>Kyçuni ose Regjistrohuni</h2>
 </header>
 
 <div id="errors" class="hidden">
-	<h4>Uh-oh! Some errors occured</h4>
+	<h4>Uh-oh! Ndodhen disa gabime</h4>
 	<ul></ul>
 </div>
 
 <form>
 	<article>
-		<strong>If you have an account: </strong><br>
-		<input id="email_or_handle" type="text" name="email_or_handle" placeholder="email or username" autofocus>
-		<input id="password" type="password" name="password" placeholder="password">
+		<strong>Nëse keni një llogari: </strong><br>
+		<input id="email_or_handle" type="text" name="email_or_handle" placeholder="emaili ose nofka" autofocus>
+		<input id="password" type="password" name="password" placeholder="fjalëkalimi">
 
-		<a href="#" id="forgotPassword">Forgot Password?</a>
+		<a href="#" id="forgotPassword">Keni harruar fjalëkalimin?</a>
 	</article>
 
 	<footer>
-		<button type="submit" class="btn">Sign In</button>
+		<button type="submit" class="btn">Kyçuni</button>
 		<div class="divider"><br>
-		<strong>	- or - <br>
-		First time here and don't have an account yet? </strong><br><br>
+		<strong>	- ose - <br>
+		Për herë të parë këtu dhe nuk e keni akoma një llogari? </strong><br><br>
 		</div>
-		<button id="signUp" class="btn">Sign Up</button>
+		<button id="signUp" class="btn">Regjistrohu</button>
 	</footer>
 </form>
 

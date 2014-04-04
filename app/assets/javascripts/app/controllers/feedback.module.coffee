@@ -3,7 +3,7 @@ helpers = require('app/helpers')
 Overlay = require('app/controllers/overlay')
 State   = require('app/state')
 
-class Feedback extends Overlay
+class Sugjerime extends Overlay
   className: 'feedback'
   helpers: helpers
 
@@ -30,4 +30,4 @@ class Feedback extends Overlay
 
     @close()
 
-module.exports = Feedback
+module.exports = Sugjerime

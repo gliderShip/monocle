@@ -1,14 +1,38 @@
 <nav>
   <a href="/feed" class="feed" title="RSS feed"></a>
 </nav>
+<div class="wrapper">  <article class="splash">
+    <h1>Quid Fit?</h1>
+    <h2>Per tu informuar dhe debatuar ne kohe reale mbi aktualitetin, politiken, ekonomin dhe gjithcka tjeter.</h2>
 
-<div class="wrapper">
-  <article class="splash">
-    <h1>Biotech Pulse</h1>
-    <h2>Realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs and investors.</h2>
-
-    <p><br><strong> Participate in the dialogue right away by:</strong><br><br>
-	<strong>Reading new and trending content:</strong> The list to the left represents the articles voted most interesting by others. Simply click on a story to the left to reveal any discussion about it and click again the title at the top to visit the link. <br><br>  <strong>Voting or commenting on the items you think are most relevant: </strong>Click the <img src="/assets/up-icon.png"> arrow under the title to "upvote" a link meaning it will be more likely to show on the front page. With enough people voting Biotech pulse will only display the highest quality content and each time you come back there will be fresh and relevant information. <br><br>  <strong>Contributing your own finds:</strong> As you find news and resources you think other biotech entrepreneurs will also find interesting then click <img src="/assets/add-icon.png"> to submit the link. Give it a title that explains the value of the content, not necessarily just the title of the page. Over time if your contributions are voted highly your links will automatically have higher placement on the site.  <br><br> <strong>Inviting friends and colleagues:</strong> Invite individuals you think have great perspective on the science and business of biotech by just sharing the link or using the "invite" feature under <img src="/assets/config-icon.png"> menu. Inviting the right people will result in more interesting posts and discussion.</p>
+    <p>
+	<br>
+	<strong class="cfa"> Merr pjese menjehere ne dialog:</strong>
+	<br>
+	<br>
+	<strong class="guidt">Lexo artikujt kryesore dhe temat me te reja:</strong>
+	Lista e në të majtë paraqet artikujt e votuar si më interesante nga të tjerët.
+	Thjesht kliko në një nga temat ne të majtë për të shfaqur çdo diskutim në lidhje me të.
+	Kliko sërish mbi titullin në krye të artikullit per te vizituar linkun.
+	<br>
+	<br>
+	<strong class="guidt">Voto ose komento mbi artikujt qe gjykon me intersant dhe te pershtatshem:</strong>
+	Kliko shigjeten <img src="/assets/up-icon.png"> poshte titujve per te votuar temen,
+	cka do te thote se ajo do te kete me shume gjasa te qendroj ne faqen e pare.
+	Nese mjaft prej jush do te prononcohen, QuidFit? do te shfaq vetem temat me interesante dhe artikujt me cilesore.
+	Ju premtojme se sa here qe te ktheheni do te gjeni informacione te fresketa dhe te pershtateshme.
+	<br>
+	<br>
+	<strong class="guidt">Kontribo me materialet e tua:</strong>
+	Nese has burime informacioni ti cilat i gjykon interesante per lexuesit dhe komunitetin e kesaj faqeje
+	atehere kliko <img src="/assets/add-icon.png"> per te postuar linkun.
+	Jepi një titull që shpjegon vlerën e përmbajtjes, jo domosdoshmërisht vetëm titullin e artikullit.
+	Me kalimin e kohës, nese kontributi yt votohet/pelqehet me shumë postimet e tua automatikisht do të publikohen ne faqen e pare te ketij siti.
+	<br>
+	<br>
+	<strong class="guidt">Fto miqte dhe koleget:</strong>
+	Fto individët opinionet e te cileve ti respekton duke i derguar linkun ose duke perdorur funksionalitetin "ftesë" nen menun <img src="/assets/config-icon.png">.
+	Duke ftuar personat e duhur do të rezultojnë artikuj dhe diskutime më interesante.</p>
 
 
   </article>

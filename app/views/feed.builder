@@ -1,7 +1,7 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Biotech Pulse"
+    xml.title "Quid Fit?"
     xml.description "Realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs."
     xml.link "http://news.harlembiospace.com/"
 

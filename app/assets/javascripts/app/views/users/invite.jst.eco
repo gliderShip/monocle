@@ -1,25 +1,24 @@
 <header>
-  <h2>Spread the word</h2>
+  <h2>Përhap fjalën</h2>
 </header>
 
 <article>
   <p>
-    Invites are like fairy dust. They're special, and should only be sprinkled sparingly.
-    Invite people who's input you respect, and who's opinion you want to hear more of.
+    Hej, mos harro. Ftesat janë si pluhuri magjik i zanave, duhet perdorur me mase dhe kujdes.
+    Ftoni njerezit qe respektoni dhe opinionet e te cileve kane rendesi per ju.
   </p>
 
   <% if @user.get('invites_count'): %>
     <p>
-      You have
+      Te kane ngelur edhe
       <strong>
         <%= @user.get('invites_count') %>
-        <%= @helpers.pluralize 'invite', @user.get('invites_count') %>
-      </strong>
-      left.
+        <%= @helpers.pluralize 'cupon', @user.get('invites_count') %>
+      </strong>.
     </p>
 
     <p>
-      Enter an email below, and we'll send them an entry pass to Biotech Pulse.
+      Fusni një e-mail më poshtë dhe ne do ti dërgojmë atyre një ftesë për QuidFit?
     </p>
 
     <form>
@@ -44,9 +43,9 @@
     </form>
   <% else: %>
     <p>
-      Sorry, you don't have any invites right now.
-      However, we do issue more periodically -
-      check back soon!
+      Na vjen keq, ju nuk zoterroni ndonjë ftesë tani. 
+      Megjithatë, ne shperndajmë më shumë në mënyrë periodike - 
+      rikthehuni së shpejti!
     </p>
   <% end %>
 </article>
