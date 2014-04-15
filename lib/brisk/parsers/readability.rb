@@ -9,50 +9,65 @@ module Brisk
 
       NEGATIVE = /(comment|meta|footer|footnote)/
       POSITIVE = /((^|\\s)(post|hentry|entry[-]?(content|text|body)?|article[-]?(content|text|body)?)(\\s|$))/
+      ARTICLE_CSS  = {
+          'base'        => 'p',
+          'ballkan_v1'  => 'body table tr td[width="100%"][class^="font1"]',
+          'ballkan_v2'  => 'body table tr td[width="100%"][class^="font2"]',
+          'ballkan_v3'  => 'body table tr td[width="100%"][class^="font3"]',
+          'ballkan_v4'  => 'body table tr td[class^="font1"]',
+          'ballkan_v5'  => 'body table tr td[class^="font2"]',
+          'ballkan_v6'  => 'body table tr div[class^="font"]',
+          'top_channel_v1'  => 'span[class^="arial1"]',
+          'top_channel_v2'  => 'span[class^="arial2"]',
+          'top_channel_v3'  => 'span[class^="treb1"]',
+      }
 
-      def parse(html)
-        base = Nokogiri::HTML(encode(html), nil, 'UTF-8')
+      def parse(base)
         parse_paragraph_tags(base)
       end
 
-      protected
+    protected
 
-      def parse_paragraph_tags(base)
-        articles = base.css('p').map(&:parent).uniq
+    def parse_paragraph_tags(base)
 
-        articles = articles.inject({}) do |hash, article|
-          hash[article] = score(article)
-          hash
-        end
+      base.css('a, img, script, style, link, iframe, option, input', 'br').remove
 
-        article, score = articles.sort_by {|k,v| v }.last
-        return unless article
-        return unless score > 10
+      articles = nil
+      ARTICLE_CSS.each_value{ |css_path|
+        articles = base.css(css_path).map(&:parent).uniq
+        break if !articles.empty?
+      }
 
-        article.css('script, style, link, iframe').remove
-
-        article.inner_html
+      articles = articles.inject({}) do |hash, article|
+        hash[article] = score(article)
+        hash
       end
 
-      def score(article)
-        score = 0
+      article, score = articles.sort_by {|k,v| v }.last
+      return unless article
+      return unless score > 10
 
-        score -= 50 if article.attr('class') =~ NEGATIVE
-        score -= 50 if article.attr('id') =~ NEGATIVE
+      article
+    end
 
-        score += 25 if article.attr('class') =~ POSITIVE
-        score += 25 if article.attr('id') =~ POSITIVE
+    def score(article)
+      score = 0
 
-        score += 25 if article.name == 'article'
+      score -= 50 if article.attr('class') =~ NEGATIVE
+      score -= 50 if article.attr('id') =~ NEGATIVE
+      score += 25 if article.attr('class') =~ POSITIVE
+      score += 25 if article.attr('id') =~ POSITIVE
+      score += 25 if article.name == 'article'
 
-        paragraphs = article.css('> p')
+      score +=  Math.sqrt(article.text.gsub(/\s+/, ' ').length)
 
-        score += 2 if paragraphs.text.length > 10
-        score += paragraphs.text.split(',').length
-        score += paragraphs.length
+      paragraphs = article.css('> p')
+      score += 2 if paragraphs.text.length > 10
+      score += paragraphs.text.split(',').length
+      score += paragraphs.length
 
-        score
-      end
+      score
+    end
     end
   end
 end

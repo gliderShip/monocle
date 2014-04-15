@@ -1,10 +1,12 @@
 @import '../mixins'
 
 .app .posts-show {
+
   position: absolute
 
   // Sidebar
-  left: 415px
+  //left: 465px
+  left: 38%
   top: 0
   bottom: 0
   right: 0
@@ -53,8 +55,8 @@
     .icon {
       float: left
       display: block
-      height: 98px
-      width: 98px
+      height: 108px
+      width: 108px
       position: relative
       margin-right: 16px
 
@@ -84,7 +86,8 @@
     }
 
     .title a {
-      color: #3D525E
+    font-family: 'franklin-gothic-urw', sans-serif;
+      color: #2c414d
 
       &:hover {
         color: #D32626
@@ -94,14 +97,16 @@
 
     .summary {
       border-top: 1px solid #EBEEF2
-      margin-top: 20px
-      padding-top: 7px
+      margin-top: 40px
+      padding-top: 1em
       position: relative
+      font-family: georgia, serif;
+      font-size: 1.2em
 
       &:before {
-        content: 'Summary'
+        content: 'Përmbledhje'
+        font-size: 0.8em
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-        font-size: 11px
         font-weight: 700
         color: #77808c
         text-transform: uppercase
@@ -113,7 +118,7 @@
     }
 
     &.icon-present section {
-      margin-left: 114px
+      margin-left: 124px
     }
 
     &.icon-error .icon {

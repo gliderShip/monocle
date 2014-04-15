@@ -1,0 +1,8 @@
+>> Writing PID to tmp/pids/thin.3002.pid
+>> Using rack adapter
+/home/glidership/.rvm/gems/ruby-2.0.0-p451/gems/activesupport-3.0.0/lib/active_support/multibyte.rb:26: warning: already initialized constant Mail::Multibyte::VALID_CHARACTER
+/home/glidership/.rvm/gems/ruby-2.0.0-p451/gems/mail-2.5.4/lib/mail/multibyte.rb:24: warning: previous definition of VALID_CHARACTER was here
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3002, CTRL+C to stop
+>> Exiting!

@@ -4,7 +4,7 @@ Post    = -> require('app/models/post')
 Comment = -> require('app/models/comment')
 
 class ModelStream extends Stream
-  url: 'http://stream.example.com/subscribe'
+  url: 'http://0.0.0.0:3000/subscribe'
 
   constructor: ->
     super

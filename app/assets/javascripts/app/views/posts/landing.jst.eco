@@ -1,7 +1,9 @@
 <nav>
   <a href="/feed" class="feed" title="RSS feed"></a>
 </nav>
-<div class="wrapper">  <article class="splash">
+
+<div class="wrapper" >  <article class="splash">
+
     <h1>Quid Fit?</h1>
     <h2>Per tu informuar dhe debatuar ne kohe reale mbi aktualitetin, politiken, ekonomin dhe gjithcka tjeter.</h2>
 
@@ -36,4 +38,9 @@
 
 
   </article>
+
+
+
+
+
 </div>

@@ -1,22 +1,74 @@
+require 'open-uri'
 require 'nokogiri'
 
 module Brisk
   module Parsers
     module OpenGraph extend self
-      PROPERTIES = %w{description title url site_name type image}
+    extend Encoding
 
-      def parse(html)
-        base = Nokogiri::HTML(html, nil, 'UTF-8')
-        PROPERTIES.inject({}) do |hash, property|
-          hash[property.to_sym] = parse_property(property, base)
-          hash
+      PROPERTIES = [
+        'og:site_name',
+        'og:type',
+        'og:locale', 
+        'fb:app_id', 
+        'og:url', 
+        'og:title', 
+        'og:description', 
+        'description',
+        'og:image', 
+        'article:published_time', 
+        'article:modified_time', 
+        'article:author', 
+        'article:section', 
+        'article:tag'
+      ]
+
+      IMG = [ 'jpg', 'jpeg']
+
+      def parse(base, isObject)
+
+        if !isObject
+          base      = open(base)
+          base      = base.read
+          base = encode(base)
+          base = Nokogiri::HTML(base, nil, nil)
+
         end
-      end
 
+        metaElems = base.css('meta')
+        openGraph = {}
+        PROPERTIES.each {| property|
+          openGraph[property] = parse_property(property, metaElems)
+          openGraph
+        }
+
+        if openGraph['og:image']
+          openGraph['og:image'] = openGraph['og:image'].split('?')[0]
+        end
+
+        if !(openGraph['og:image'] && IMG.any? { |img| openGraph['og:image'].include? img })
+          openGraph['og:image'] = nil
+        end
+
+        if( openGraph['og:image'] && openGraph['og:image'].include?('blank'))
+          openGraph['og:image'] = nil
+        end
+
+        if( openGraph['og:image'] && openGraph['og:image'].include?('banner'))
+          openGraph['og:image'] = nil
+        end
+
+
+
+
+        openGraph['og:description'] = nil
+        return openGraph
+      end
+      
       protected
 
-      def parse_property(property, base)
-        description = base.css("meta[property=\"og:#{property}\"]").first
+      def parse_property(property, metaElems)
+        description = metaElems.at_css("meta[property=\"#{property}\"]")
         content     = description && description['content']
         content && content.strip
       end

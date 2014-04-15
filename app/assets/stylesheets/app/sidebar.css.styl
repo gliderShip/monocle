@@ -1,23 +1,25 @@
 @import '../mixins'
 
 .app .sidebar footer .btn.add:after {
-content: '___Publiko' !important;
+content: 'Publiko' !important;
 display: block;
 width: 80px !important;
 height: 14px;
 background-repeat: no-repeat;
 background-image: url("/assets/add-icon.png");
 margin: 5px 9px;
+padding: 0px 0px 0px 20px;
 }
 
 .app .sidebar footer .btn.config:after {
-content: '___Menu' !important;
+content: 'Menu' !important;
 display: inline-block;
 width: 60px !important;
 height: 14px;
 background-repeat: no-repeat;
 background-image: url("/assets/config-icon.png");
 margin: 5px 9px;
+padding: 0px 0px 0px 20px;
 }
 
 .app .sidebar {
@@ -27,7 +29,9 @@ margin: 5px 9px;
   bottom: 0
 
   overflow: hidden
-  width: 415px
+  //width: 465px
+  width: 38%
+  min-width: 320px
   box-sizing: border-box
   border-right: 1px solid #DADFE5
 
@@ -121,7 +125,7 @@ margin: 5px 9px;
     }
 
     a.popular {
-      background-image2x: '/assets/popular-icon.png'
+      background-image2x: '/assets/popular-icon_dark.png'
       background-size: 10px 12px
       background-position: 0 0px
 
@@ -132,7 +136,7 @@ margin: 5px 9px;
     }
 
     a.newest {
-      background-image2x: '/assets/newest-icon.png'
+      background-image2x: '/assets/newest-icon_dark.png'
       background-size: 11px 12px
       background-position: 0 1px
 

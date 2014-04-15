@@ -8,5 +8,6 @@ module Brisk
     autoload :Summary, 'brisk/parsers/summary'
     autoload :OpenGraph, 'brisk/parsers/open_graph'
     autoload :Preview, 'brisk/parsers/preview'
+    autoload :Video, 'brisk/parsers/video'
   end
 end

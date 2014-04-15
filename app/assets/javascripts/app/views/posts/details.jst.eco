@@ -1,13 +1,13 @@
 <?php header('X-Frame-Options: GOFORIT'); ?>
 <% if @post.get('icon'): %>
-  <a class="icon" href="<%= @post.get('url') %>">
+  <a class="icon" href="<%= @post.get('url') %>" target="_blank">
     <img src="<%= @post.get('icon') %>">
   </a>
 <% end %>
 
 <section>
   <h1 class="title">
-     <a href="<%= @post.get('url') %>"><%= @post.get('title') %></a>
+     <a href="<%= @post.get('url') %>" target="_blank"><%= @post.get('title') %></a>
   </h1>
 
   <div class="meta">
@@ -32,13 +32,24 @@
     </span>
   </div>
 
+
+<% if @post.get('oembed').src: %>
+    <iframe seamless class="article-video" width="430px" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="" height="240px" style="
+        margin-top: 15px;
+        margin-left: 30px;
+        margin-right: auto;
+        position: static;
+    ">
+    </iframe>
+<% end %>
+
   <% if @post.get('summary'): %>
     <p class="summary">
       <%= @post.truncatedSummary(500) %>
     </p>
   <% end %>
 
-  <iframe id="theFrame" src="http://www.google.com" style="width:100%;" frameborder="0">
+
 </iframe>
 
 </section>

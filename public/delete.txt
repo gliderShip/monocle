@@ -1,0 +1,50 @@
+<tr>
+<td class="font23"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td>
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="75" class="fontintbox">- Kategori</td>
+                                                <td width="5"> </td>
+                                                <td align="left"><select name="id_categoria"><option value="0">Të gjitha</option>
+<option value="22">Politika</option>
+<option value="21">Sociale</option>
+<option value="17">Kronika</option>
+<option value="20">Ekonomi</option>
+<option value="19">Rajoni</option>
+<option value="18">Bota</option>
+<option value="16">Sport</option></select></td>
+                                              </tr></table></td>
+                                          <td width="35"> </td>
+                                          <td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="69" class="fontintbox">- Titull</td>
+                                                <td width="5"> </td>
+                                                <td><input type="text" name="titolo" style="width:200px; height:20; margin:0px; padding:0px;" value=""></td>
+                                              </tr></table></td>
+                                        </tr>
+<tr>
+<td height="5" colspan="3"><img src="/images/spacer.gif" width="1" height="1"></td>
+                                        </tr>
+<tr>
+<td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="75" class="fontintbox">- Data</td>
+                                                <td width="5"> </td>
+                                                <td align="left"><input type="text" name="data" style="width:100px; height:20; margin:0px; padding:0px;" value="dd-mm-vvvv" onfocus="if (this.value=='dd-mm-vvvv') this.value='';" onblur="if (this.value=='') this.value='dd-mm-vvvv';"></td>
+                                              </tr></table></td>
+                                          <td width="35"> </td>
+                                          <td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="69" class="fontintbox">- Tekst</td>
+                                                <td width="5"> </td>
+                                                <td><input type="text" name="libera" style="width:200px; height:20; margin:0px; padding:0px;" value=""></td>
+                                              </tr></table></td>
+                                        </tr>
+<tr>
+<td colspan="3" height="10"><img src="/images/spacer.gif" width="1" height="1"></td>
+                                        </tr>
+</table>
+</td>
+                                </tr></table></td>
+                          </tr></table></td>
+                    </tr>
+_________________________

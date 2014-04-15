@@ -3,8 +3,7 @@ require 'nokogiri'
 module Brisk
   module Parsers
     module LinkIcon extend self
-      def parse(html)
-        base = Nokogiri::HTML(html, nil, 'UTF-8')
+      def parse(base)
         parse_icons(base)
       end
 

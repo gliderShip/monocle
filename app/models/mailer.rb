@@ -15,7 +15,7 @@ module Brisk
 
             To learn more, and claim your invitation, visit:
 
-            thttp://example.com/claim/#{invite.code}
+            http://glidership.com:3000/claim/#{invite.code}
 
             Regards,
             

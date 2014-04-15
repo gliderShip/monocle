@@ -1,7 +1,10 @@
+#encoding: UTF-8
 require 'sanitize/config/liberal'
+require 'open-uri'
 
 module Brisk
   module Models
+    # noinspection RubyInterpreterInspection
     class Post < Sequel::Model
       # Scopes
 
@@ -141,20 +144,28 @@ module Brisk
       end
 
       def retrieve!
-        document         = Nestful.get(url).body
-        document         = document.force_encoding(Encoding::UTF_8)
-        self.oembed      = Parsers::OEmbed.parse(document) || {}
+        ourl      = open(url)
+        html      = ourl.read
+        html = Parsers::Encoding.encode(html)
+        document  = Nokogiri::HTML(html, nil, nil)
+
+        #document.meta_encoding()
+        self.open_graph  = Parsers::OpenGraph.parse(document, true)
+        self.preview_url = self.open_graph['og:image'] || Parsers::Preview.parse(document)
+        self.oembed      = Parsers::OEmbed.parse(document)
+
+        read_parsed      = Parsers::Readability.parse(document)
+        self.summary     = self.open_graph['og:description'] || Parsers::Summary.parse(read_parsed, nil)
         self.body        = Parsers::Readability.parse(document) || ''
-        self.summary     = Parsers::Summary.parse(self.body)
-        self.preview_url = Parsers::Preview.parse(self.body)
-        self.html_title  = Parsers::HTMLTitle.parse(document)
+
+        
+        self.html_title  = self.open_graph['og:title'] || Parsers::HTMLTitle.parse(ourl)
         self.link_icons  = Parsers::LinkIcon.parse(document)
-        self.open_graph  = Parsers::OpenGraph.parse(document)
         self.save
       end
 
       def slug_url
-        "http://example.com/posts/#{slug}"
+        "http://glidership.com:3000/posts/#{slug}"
       end
 
       def safe_body
@@ -162,7 +173,7 @@ module Brisk
       end
 
       def preview_url
-        super && URI.join(url, super).to_s
+        super && URI.join(URI.escape(url), URI.escape(super)).to_s
       end
 
       def link_icon_url
@@ -186,6 +197,7 @@ module Brisk
           score:          score,
           title:          title,
           url:            url,
+          oembed:         oembed,
           slug:           slug,
           domain:         domain,
           summary:        summary,
