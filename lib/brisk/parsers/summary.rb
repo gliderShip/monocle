@@ -7,6 +7,8 @@ module Brisk
 
       SUMMARY_CSS  = {
           'base'            => 'p',
+          'panorama_v1'    => 'div[class*="post"]',
+          'panorama_v2'    => 'div[id*="primary"]',
           'ballkan_v1'      => 'td[width="100%"][class^="font1"]',
           'ballkan_v2'      => 'td[width="100%"][class^="font2"]',
           'ballkan_v3'      => 'td[width="100%"][class^="font3"]',

@@ -153,7 +153,7 @@ module Brisk
         self.open_graph  = Parsers::OpenGraph.parse(document, true)
         self.preview_url = self.open_graph['og:image'] || Parsers::Preview.parse(document)
         self.oembed      = Parsers::OEmbed.parse(document)
-
+        puts(oembed.inspect)
         read_parsed      = Parsers::Readability.parse(document)
         self.summary     = self.open_graph['og:description'] || Parsers::Summary.parse(read_parsed, nil)
         self.body        = Parsers::Readability.parse(document) || ''

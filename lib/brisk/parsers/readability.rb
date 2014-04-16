@@ -9,8 +9,12 @@ module Brisk
 
       NEGATIVE = /(comment|meta|footer|footnote)/
       POSITIVE = /((^|\\s)(post|hentry|entry[-]?(content|text|body)?|article[-]?(content|text|body)?)(\\s|$))/
+      BAD_CLASS = 'div[class*="comment"], div[class*="meta"], div[class*="foot"], div[class*="note"], div[class*="noprint"], span[class*="postinfo"]'
+      BAD_ID = 'div[id*="comment"], div[id*="meta"], div[id*="foot"], div[id*="note"], div[id*="noprint"]'
+
       ARTICLE_CSS  = {
-          'base'        => 'p',
+          'panorama_v1'    => 'div[class*="post"]',
+          'panorama_v2'    => 'div[id*="primary"]',
           'ballkan_v1'  => 'body table tr td[width="100%"][class^="font1"]',
           'ballkan_v2'  => 'body table tr td[width="100%"][class^="font2"]',
           'ballkan_v3'  => 'body table tr td[width="100%"][class^="font3"]',
@@ -20,6 +24,7 @@ module Brisk
           'top_channel_v1'  => 'span[class^="arial1"]',
           'top_channel_v2'  => 'span[class^="arial2"]',
           'top_channel_v3'  => 'span[class^="treb1"]',
+          'base'        => 'p',
       }
 
       def parse(base)
@@ -31,6 +36,8 @@ module Brisk
     def parse_paragraph_tags(base)
 
       base.css('a, img, script, style, link, iframe, option, input', 'br').remove
+      base.css(BAD_CLASS).remove
+      base.css(BAD_ID).remove
 
       articles = nil
       ARTICLE_CSS.each_value{ |css_path|
