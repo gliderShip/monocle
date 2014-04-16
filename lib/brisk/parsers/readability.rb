@@ -9,8 +9,8 @@ module Brisk
 
       NEGATIVE = /(comment|meta|footer|footnote)/
       POSITIVE = /((^|\\s)(post|hentry|entry[-]?(content|text|body)?|article[-]?(content|text|body)?)(\\s|$))/
-      BAD_CLASS = 'div[class*="comment"], div[class*="meta"], div[class*="foot"], div[class*="note"], div[class*="noprint"], span[class*="postinfo"]'
-      BAD_ID = 'div[id*="comment"], div[id*="meta"], div[id*="foot"], div[id*="note"], div[id*="noprint"]'
+      BAD_CLASS = 'div[class*="comment"], div[class*="Comment"],  div[class*="meta"], div[class*="foot"], div[class*="note"], div[class*="noprint"], span[class*="postinfo"], p[class*="caption"]'
+      BAD_ID = 'div[id*="comment"], div[id*="Comment"], div[id*="meta"], div[id*="foot"], div[id*="note"], div[id*="noprint"]'
 
       ARTICLE_CSS  = {
           'panorama_v1'    => 'div[class*="post"]',

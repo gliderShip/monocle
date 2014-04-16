@@ -7,9 +7,13 @@ module Brisk
 
       IMG_CSS = {
           'good_jpg_css' => 'body img[src^="http"][src*="jpg"]',
+          'good_jpg_css' => 'body img[src^="http"][src*="JPG"]',
           'good_jpeg_css' => 'body img[src^="http"][src*="jpeg"]',
+          'good_jpeg_css' => 'body img[src^="http"][src*="JPEG"]',
           'bad_jpg_css' => 'body img[src*="jpg"]',
+          'bad_jpg_css' => 'body img[src*="JPG"]',
           'bad_jpeg_css' => 'body img[src*="jpeg"]',
+          'bad_jpeg_css' => 'body img[src*="JPEG"]',
           'bad' => 'img'
       }
 
