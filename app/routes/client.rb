@@ -3,7 +3,7 @@ module Brisk
     class Client < Base
       helpers do
         def ios?
-          request.user_agent =~ /a|iPod/
+          request.user_agent =~ /iPhone|iPod/
         end
 
         alias_method :mobile?, :ios?

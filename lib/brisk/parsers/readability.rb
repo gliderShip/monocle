@@ -35,7 +35,7 @@ module Brisk
 
     def parse_paragraph_tags(base)
 
-      base.css('a, img, script, style, link, iframe, option, input', 'br').remove
+      base.css('a, img, script, style, link, iframe, option, input', 'br', 'form').remove
       base.css(BAD_CLASS).remove
       base.css(BAD_ID).remove
 

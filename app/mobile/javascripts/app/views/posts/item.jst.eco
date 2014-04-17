@@ -4,7 +4,7 @@
 <% if @post.get('icon'): %>
     <img src="<%= @post.get('icon') %>" width="70px" height="70px">
 <% else: %>
-  <img src="<%= '/assets/missing.png' %>" width="70px" height="70px">
+  <img src="<%= '/assets/missingal@2x.png' %>" width="70px" height="70px">
 <% end %>
 </span>
 </a>
@@ -28,13 +28,7 @@
         <%= @post.get('user_handle') %>
       </span>
 
-      <!--
-      <span class="meta-point discuss">
-        <time title="<%= @post.get('created_at') %>"><%= @post.ago() %></time>
-        · <%= @post.get('comments_count') %>
-          <%= @helpers.pluralize('comment', @post.get('comments_count')) %>
-      </span>
-      -->
+
     </div>
   </a>
 

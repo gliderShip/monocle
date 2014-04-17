@@ -1,3 +1,4 @@
+require 'open-uri'
 require 'nokogiri'
 
 module Brisk
@@ -6,14 +7,14 @@ module Brisk
       extend self
 
       IMG_CSS = {
-          'good_jpg_css' => 'body img[src^="http"][src*="jpg"]',
-          'good_jpg_css' => 'body img[src^="http"][src*="JPG"]',
-          'good_jpeg_css' => 'body img[src^="http"][src*="jpeg"]',
-          'good_jpeg_css' => 'body img[src^="http"][src*="JPEG"]',
-          'bad_jpg_css' => 'body img[src*="jpg"]',
-          'bad_jpg_css' => 'body img[src*="JPG"]',
-          'bad_jpeg_css' => 'body img[src*="jpeg"]',
-          'bad_jpeg_css' => 'body img[src*="JPEG"]',
+          'good_jpg_css' => "body img[src^='http'][src*='.jpg']",
+          'good_jpgU_css' => "body img[src^='http'][src*='.JPG']",
+          'good_jpeg_css' => "body img[src^='http'][src*='.jpeg']",
+          'good_jpegU_css' => "body img[src^='http'][src*='.JPEG']",
+          'bad_jpg_css' => "body img[src*='.jpg']",
+          'bad_jpgU_css' => "body img[src*='.JPG']",
+          'bad_jpeg_css' => "body img[src*='.jpeg']",
+          'bad_jpegU_css' => "body img[src*='.JPEG']",
           'bad' => 'img'
       }
 

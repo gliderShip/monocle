@@ -42,6 +42,7 @@ pluralize = (word, number = 1) ->
 
 crop = (url, width, height) ->
   url = url.replace(/^https?:\/\//, '')
+  url = encodeURIComponent(url)
   "http://images.weserv.nl/?h=108&w=108&q=95&t=square&url=#{url}"
 
 createFragment = (value, element = document.createElement('div')) ->
