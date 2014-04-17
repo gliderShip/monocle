@@ -1,4 +1,14 @@
 <li class="item tappable" data-id="<%= @post.get('id') %>">
+<a class="thumbnail" href="<%= @post.get('url') %>" target="_blank">
+<span>
+<% if @post.get('icon'): %>
+    <img src="<%= @post.get('icon') %>" width="70px" height="70px">
+<% else: %>
+  <img src="<%= '/assets/missing.png' %>" width="70px" height="70px">
+<% end %>
+</span>
+</a>
+
   <a href="<%= @post.get('url') %>">
     <h5 class="title <% if @post.get('visited'): %>visited<% end %>">
       <%= @post.get('title') %>
