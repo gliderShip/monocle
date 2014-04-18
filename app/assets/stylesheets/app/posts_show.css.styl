@@ -5,8 +5,7 @@
   position: absolute
 
   // Sidebar
-  //left: 465px
-  left: 38%
+  left: 485px
   top: 0
   bottom: 0
   right: 0
@@ -53,15 +52,18 @@
     overflow: hidden
 
     .icon {
-      float: left
+      float: right
       display: block
-      height: 108px
-      width: 108px
+      width: 240px
+      height: 160px
       position: relative
+      margin-left: 16px
+      margin-top :8px
+      margin-bottom :0px
       margin-right: 16px
 
       img {
-        border-radius: 5px
+        //border-radius: 5px
         display: block
         height: 100%
         width: 100%
@@ -69,7 +71,7 @@
 
       &:after {
         content: ''
-        border-radius: 5px
+        //border-radius: 5px
         box-shadow: rgba(0, 0, 0, 0.08) 0 1px 1px inset
         display: block
         left: 0
@@ -102,6 +104,8 @@
       position: relative
       font-family: georgia, serif;
       font-size: 1.2em
+      text-align:justify;
+      text-justify:inter-word;
 
       &:before {
         content: 'Përmbledhje'
@@ -118,7 +122,7 @@
     }
 
     &.icon-present section {
-      margin-left: 124px
+      margin-left: 0px
     }
 
     &.icon-error .icon {

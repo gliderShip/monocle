@@ -1,18 +1,26 @@
 @import '../mixins'
 
 .mobile .comments section {
+
+  padding: 0px 25px;
+  p{
+    color: #282828;
+  }
   header {
-    padding: 15px;
+    padding: 8px 0px;
     user-select: none;
     position: relative
     max-width: 590px
     margin: 0 auto
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e3e3e3;
 
     h1 {
-      font-family: "Helvetica Neue"
+      font-family: 'Georgia', serif;
+      font-stretch: italic;
       font-weight: 700
-      color: #3D525E
-      font-size: 15px
+      color: #3d525e;
+      font-size: 24px
 
       line-height: 1.2em;
       margin: 0;
@@ -20,7 +28,7 @@
 
       a {
         display: block
-        color: #3D525E
+        color: #181818;
         text-decoration: none;
       }
 
@@ -50,6 +58,19 @@
 
     .meta-point {
       display: block
+      font-family: "franklin-gothic-urw" , sans-serif;
+      font-weight: 700;
+      color: #ababab;
+    }
+
+    .domain {
+      color: #d32626;
+      font-weight: bold
+    }
+
+    .user {
+      color: #d32626;
+      font-weight: bold
     }
   }
 
@@ -76,10 +97,7 @@
       box-pack: justify
     }
 
-    .meta-point.user {
-      color: #D32626;
-      font-weight: bold
-    }
+
 
     .meta-point.discuss {
       text-align: right

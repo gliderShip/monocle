@@ -9,26 +9,27 @@ module Brisk
           to      invite.email
           subject "An invitation to join Quid Fit? from #{invite.user_name}."
           body    <<-EOF.dedent
-            Hi there,
+            Përshëndetje,
 
-            #{invite.user_name} has invited you to join Quid Fit?, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs.
+            #{invite.user_name} ju fton ti bashkoheni Masës-Kritike, nje website i dedikuar ndarjes ne kohë reale te temave, artikujve, informacioneve dhe materialeve me interesante.
+            Per tu informuar dhe debatuar ne kohe reale mbi aktualitetin, politiken, ekonomin dhe gjithcka tjeter.
 
-            To learn more, and claim your invitation, visit:
+            Për të mësuar më shumë, hidhi një sy:
 
             http://glidership.com:3000/claim/#{invite.code}
 
-            Regards,
+            Gjithë te mirat,
             
-            Harlem Biospace Team
+            Masa-Kritike
 
         end
       end
 
       def create_and_deliver_password_change!(user, password)
         Mail.deliver do
-          from    'Quid Fit? <pulse@harlembiospace.com>'
+          from    'Masa-Kritike <glidership@hotmail.com>'
           to      user.email
-          subject 'Reset your password'
+          subject 'Ndryshoni Fjalëkalimin'
           body    <<-EOF.dedent
             Hi there,
 
@@ -46,7 +47,7 @@ module Brisk
 
       def user_activate!(user)
         Mail.deliver do
-          from    'Quid Fit? <pulse@harlembiospace.com>'
+          from    'Quid Fit? <glidership@hotmail.com>'
           to      user.email
           subject 'Welcome to Quid Fit?!'
           body    <<-EOF.dedent
@@ -62,8 +63,8 @@ module Brisk
 
       def feedback!(text, email = nil)
         Mail.deliver do
-          from    'Quid Fit? <director@harlembiospace.com>'
-          to      'm@harlembiospace.com'
+          from    'Quid Fit? <glidership@hotmail.com>'
+          to      'glidership@hotmail.com'
           subject 'Quid Fit? Sugjerime'
           reply_to email if email.present?
           body     text

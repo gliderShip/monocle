@@ -1,9 +1,4 @@
 <?php header('X-Frame-Options: GOFORIT'); ?>
-<% if @post.get('icon'): %>
-  <a class="icon" href="<%= @post.get('url') %>" target="_blank">
-    <img src="<%= @post.get('icon') %>">
-  </a>
-<% end %>
 
 <section>
   <h1 class="title">
@@ -43,10 +38,16 @@
     </iframe>
 <% end %>
 
-  <% if @post.get('summary'): %>
     <p class="summary">
-      <%= @post.truncatedSummary(500) %>
-    </p>
+  <% if @post.get('icon'): %>
+    <a class="icon" href="<%= @post.get('url') %>" target="_blank">
+      <img src="<%= @post.get('icon') %>">
+    </a>
   <% end %>
+    <% if @post.get('summary'): %>
+      <%= @post.truncatedSummary(600) %>
+
+  <% end %>
+ </p>
 
 </section>
