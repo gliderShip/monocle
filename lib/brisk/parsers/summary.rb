@@ -5,6 +5,10 @@ module Brisk
     module Summary extend self
       extend Encoding
 
+    REMOVE_TAG = ['h1, h2, h3, h4, h5, pre, code, strong, before, stats']
+    REMOVE_CLASS = '[class*="before"], [class*="stats"]'
+    REMOVE_ID = '[id*="before"], [id*="stats"]'
+
       SUMMARY_CSS  = {
           'base'            => 'p',
           'panorama_v1'    => 'div[class*="post"]',
@@ -21,11 +25,15 @@ module Brisk
       }
 
       def parse(base, url)
-        base.css('h1, h2, h3, h4, h5, pre, code, strong').remove
+        base.css(REMOVE_TAG).remove
+        base.css(REMOVE_CLASS).remove
+        base.css(REMOVE_ID).remove
 
         SUMMARY_CSS.each_value { |css_path|
-
           text = base.css(css_path)
+
+
+
           if !text.empty?
             text = text.map {|p| p.inner_text.strip }
             text = text.select {|t| t.length > 20 }

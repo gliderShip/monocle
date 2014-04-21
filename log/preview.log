@@ -1,0 +1,16 @@
+# Logfile created on 2014-04-21 14:26:53 +0200 by logger.rb/41954
+IMAGES START=======================================
+[#<Nokogiri::XML::Element:0x5b73b44 name="img" attributes=[#<Nokogiri::XML::Attr:0x5b73b12 name="src" value="http://www.tirana.gen.al/images/tirana_logo.jpg">, #<Nokogiri::XML::Attr:0x5b73b08 name="alt" value="Tirana.gen.al">]>, #<Nokogiri::XML::Element:0x5b72cc6 name="img" attributes=[#<Nokogiri::XML::Attr:0x5b72c8a name="src" value="http://www.tirana.gen.al/images/tb_color.jpg">, #<Nokogiri::XML::Attr:0x5b72c80 name="alt">]>, #<Nokogiri::XML::Element:0x5b7c366 name="img" attributes=[#<Nokogiri::XML::Attr:0x5b7c32a name="src" value="http://www.tirana.gen.al/images/bb_color.jpg">, #<Nokogiri::XML::Attr:0x5b7c320 name="alt">]>]
+IMAGES END=======================================
+SCORE START=======================================
+"http://www.tirana.gen.al/images/tirana_logo.jpg"
+0
+SCORE END=======================================
+SCORE START=======================================
+"http://www.tirana.gen.al/images/tb_color.jpg"
+9
+SCORE END=======================================
+SCORE START=======================================
+"http://www.tirana.gen.al/images/bb_color.jpg"
+8
+SCORE END=======================================

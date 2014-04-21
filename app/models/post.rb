@@ -150,16 +150,23 @@ module Brisk
         document  = Nokogiri::HTML(html, nil, nil)
 
         #document.meta_encoding()
+        document         = Parsers::Skim.parse(document)
         self.open_graph  = Parsers::OpenGraph.parse(document, true)
-        self.preview_url = self.open_graph['og:image'] || Parsers::Preview.parse(document)
+        self.oembed      = Parsers::OEmbed.parse(document)
+
+        self.preview_url = nil;
+        if !self.oembed.has_key?("src")
+          self.preview_url = self.open_graph['og:image'] || Parsers::Preview.parse(document)
+        end
+
         read_parsed      = Parsers::Readability.parse(document)
-        self.oembed      = Parsers::OEmbed.parse(read_parsed)
         self.summary     = self.open_graph['og:description'] || Parsers::Summary.parse(read_parsed, nil)
         self.body        = Parsers::Readability.parse(document) || ''
 
         
         self.html_title  = self.open_graph['og:title'] || Parsers::HTMLTitle.parse(ourl)
-        self.link_icons  = Parsers::LinkIcon.parse(document)
+          self.link_icons  = Parsers::LinkIcon.parse(document)
+
         self.save
       end
 

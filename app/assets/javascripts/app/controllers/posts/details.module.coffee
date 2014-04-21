@@ -24,7 +24,7 @@ class Details extends Controller
     @html(@view('posts/details')(this))
     @$el.toggleClass('icon-present', !!@post.get('icon'))
     @$el.find('.icon img').error(@iconError)
-    @prerenderTimout = setTimeout(@prerender, 2000)
+    @prerenderTimout = setTimeout(@prerender, 4000)
 
   # Private
 

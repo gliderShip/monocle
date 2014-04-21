@@ -3,7 +3,8 @@ require 'nokogiri'
 
 module Brisk
   module Parsers
-    module OEmbed extend self
+    module OEmbed
+      extend self
 
       # PROPERTIES = {
       #     'version' => nil,
@@ -19,23 +20,30 @@ module Brisk
       #     'src' => nil,
       # }
 
-      VIDEO_HOSTS = [
-        'youtube',
-        'youtu',
-        'vimeo'
-      ]
+      VIDEO_HOSTS = ['youtube', 'youtu', 'vimeo']
+
+      VIDEO_CSS = ['meta[property="og:video"]', 'iframe[src]']
+
+      VATRN = ['content', 'src']
 
 
       def parse(document)
         properties = {}
-        iframe = document.css('iframe[src]')
-        
-        iframe.each { |video|
-          VIDEO_HOSTS.each { |host|
-            if video['src'].include?(host)
-              properties['src'] = video['src']
-              return properties
-            end
+        VIDEO_CSS.each { |css|
+          videos = document.css(css)
+          videos.each { |video|
+            VATRN.each { |attr|
+              if video[attr]
+                VIDEO_HOSTS.each { |host|
+                  if video[attr].include?(host)
+                    properties['src'] = video[attr]
+                    videos.remove
+                    return properties
+                  end
+                }
+              end
+            }
+            video.remove
           }
         }
 

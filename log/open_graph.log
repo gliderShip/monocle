@@ -1,0 +1,13 @@
+# Logfile created on 2014-04-21 14:26:52 +0200 by logger.rb/41954
+OPEN START=======================================
+META START=======================================
+[#<Nokogiri::XML::Element:0x567d0cc name="meta" attributes=[#<Nokogiri::XML::Attr:0x567d07c name="http-equiv" value="content-type">, #<Nokogiri::XML::Attr:0x567d068 name="content" value="text/html; charset=utf-8">]>, #<Nokogiri::XML::Element:0x567cad2 name="meta" attributes=[#<Nokogiri::XML::Attr:0x567c9f6 name="name" value="description">, #<Nokogiri::XML::Attr:0x567c9ba name="content" value="tirana.gen.al brings the information about how to get to Tirana to your browser. Click now...">]>, #<Nokogiri::XML::Element:0x567c334 name="meta" attributes=[#<Nokogiri::XML::Attr:0x567c2e4 name="name" value="keywords">, #<Nokogiri::XML::Attr:0x567c2da name="content" value="how, tirana, information, tirana.gen.al, trip, sea, air, land, bus, ferry, flight">]>]
+META END=======================================
+{"og:site_name"=>nil, "og:type"=>nil, "og:locale"=>nil, "fb:app_id"=>nil, "og:url"=>nil, "og:title"=>nil, "og:description"=>nil, "description"=>nil, "og:image"=>nil, "article:published_time"=>nil, "article:modified_time"=>nil, "article:author"=>nil, "article:section"=>nil, "article:tag"=>nil}
+OPEN END=======================================
+OPEN START=======================================
+META START=======================================
+[#<Nokogiri::XML::Element:0x5b710c4 name="meta" attributes=[#<Nokogiri::XML::Attr:0x5b71092 name="http-equiv" value="content-type">, #<Nokogiri::XML::Attr:0x5b71088 name="content" value="text/html; charset=utf-8">]>, #<Nokogiri::XML::Element:0x5b70c8c name="meta" attributes=[#<Nokogiri::XML::Attr:0x5b70c5a name="name" value="description">, #<Nokogiri::XML::Attr:0x5b70c50 name="content" value="tirana.gen.al brings the information about how to get to Tirana to your browser. Click now...">]>, #<Nokogiri::XML::Element:0x5b708ea name="meta" attributes=[#<Nokogiri::XML::Attr:0x5b708b8 name="name" value="keywords">, #<Nokogiri::XML::Attr:0x5b708ae name="content" value="how, tirana, information, tirana.gen.al, trip, sea, air, land, bus, ferry, flight">]>]
+META END=======================================
+{"og:site_name"=>nil, "og:type"=>nil, "og:locale"=>nil, "fb:app_id"=>nil, "og:url"=>nil, "og:title"=>nil, "og:description"=>nil, "description"=>nil, "og:image"=>nil, "article:published_time"=>nil, "article:modified_time"=>nil, "article:author"=>nil, "article:section"=>nil, "article:tag"=>nil}
+OPEN END=======================================
