@@ -9,5 +9,6 @@ module Brisk
     autoload :OpenGraph, 'brisk/parsers/open_graph'
     autoload :Preview, 'brisk/parsers/preview'
     autoload :Skim, 'brisk/parsers/skim'
+    autoload :Schemaorg, 'brisk/parsers/schemaorg'
   end
 end

@@ -151,20 +151,22 @@ module Brisk
 
         #document.meta_encoding()
         document         = Parsers::Skim.parse(document)
+        microdata = Parsers::Schemaorg.parse(document)
         self.open_graph  = Parsers::OpenGraph.parse(document, true)
         self.oembed      = Parsers::OEmbed.parse(document)
+        self.oembed['src'] = self.oembed['src'] || self.open_graph['v:src'] || microdata['videoUrl']
 
-        self.preview_url = nil;
-        if !self.oembed.has_key?("src")
-          self.preview_url = self.open_graph['og:image'] || Parsers::Preview.parse(document)
-        end
+        self.html_title  = microdata['headline'] || self.open_graph['og:title'] || Parsers::HTMLTitle.parse(ourl)
+        self.preview_url = self.open_graph['og:image'] || microdata['image'] || Parsers::Preview.parse(document)
 
         read_parsed      = Parsers::Readability.parse(document)
-        self.summary     = self.open_graph['og:description'] || Parsers::Summary.parse(read_parsed, nil)
-        self.body        = Parsers::Readability.parse(document) || ''
+        o_description = self.open_graph['og:description'].to_s
+        m_description = microdata['description'].to_s
+        description      = o_description.length > m_description.length ? o_description : m_description
+        psummary         = Parsers::Summary.parse(read_parsed, nil)
+        self.summary     = microdata['articleBody'] || (psummary.to_s.length > description.to_s.length ? psummary : description)
+        self.body        = read_parsed || ''
 
-        
-        self.html_title  = self.open_graph['og:title'] || Parsers::HTMLTitle.parse(ourl)
           self.link_icons  = Parsers::LinkIcon.parse(document)
 
         self.save

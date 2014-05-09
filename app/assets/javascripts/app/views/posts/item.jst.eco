@@ -1,12 +1,11 @@
 <a class="icon-mini" href="<%= @post.get('url') %>" target="_blank">
     <% if @post.get('icon'): %>
-        <img src="<%= @post.get('icon') %>" width="75px" height="50px">
+        <img src="<%= @post.get('icon') %>" class="img-thumb" width="75px" height="50px">
     <% else: %>
-        <% if @post.get('oembed').src: %>
-            <img src="<%= '/assets/youtube.png' %>" width="75px" height="50px">
-        <% else: %>
-            <img src="<%= '/assets/missingal.png' %>" width="75px" height="50px">
-        <% end %>
+        <img src="<%= '/assets/missingal.png' %>" width="75px" height="50px">
+    <% end %>
+    <% if @post.get('oembed').src: %>
+        <img src="<%= '/assets/thumb-tube.png' %>" class="img-video-overlay"  width="25px" height="18px">
     <% end %>
 </a>
 <% if @index?: %>

@@ -6,78 +6,147 @@ module Brisk
     module Preview
       extend self
 
-      IMG_CSS = {
-          'good_jpg_css' => "body img[src^='http'][src*='.jpg']",
-          'good_jpgU_css' => "body img[src^='http'][src*='.JPG']",
-          'good_jpeg_css' => "body img[src^='http'][src*='.jpeg']",
-          'good_jpegU_css' => "body img[src^='http'][src*='.JPEG']",
-          'bad_jpg_css' => "body img[src*='.jpg']",
-          'bad_jpgU_css' => "body img[src*='.JPG']",
-          'bad_jpeg_css' => "body img[src*='.jpeg']",
-          'bad_jpegU_css' => "body img[src*='.JPEG']",
-          'bad' => 'img'
-      }
-
       IMG_SRC = [
-          'src',
           'data-cfsrc',
           'data-lazy-src',
           'data-original',
           'data-src',
       ]
 
-      $image_pos = 10
+      IMG_RMV =[".png", ".gif", "blank", "banner", "subscribe", "transparent", "placeholder", "webtrekk", "noscript", "tradedoubler"]
+
+      $image_pos = 50
 
       @logger = Logger.new('log/preview.log')
 
+
       def parse(base)
 
-        IMG_CSS.each_value { |css_path|
-          @logger.info("IMAGES START=======================================")
-          images = base.css(css_path)
+        images = base.css('img')
+
+        @logger.info("IMAGES START=======================================")
+        @logger.info(images.inspect)
+        @logger.info("IMAGES END=======================================")
+
+        if !images.empty?
+
+          images = normalize_src(images)
+          @logger.info("NORMALIZE START=======================================")
           @logger.info(images.inspect)
-          @logger.info("IMAGES END=======================================")
+          @logger.info("NORMALIZE END=======================================")
 
-          if !images.empty?
-            srcs = []
+          images = remove_undesired(images).uniq
 
-            images.each { |image|
-              IMG_SRC.each { |src_name|
-                src = image[src_name]
-                if src && !src.include?('blank') && !src.include?('banner') && !src.include?('subscribe')
-                  srcs.push(src)
-                end
-              }
-            }
+          @logger.info("UNDESIRED START=======================================")
+          @logger.info(images.inspect)
+          @logger.info("UNDESIRED END=======================================")
 
-            srcs = srcs.inject({}) do |hash, src|
-              hash[src] = score(src)
-              hash
-            end
-
-            src, score = srcs.sort_by { |k, v| v }.last
-            return src
-
-
+          images = images.inject({}) do |hash, image|
+            hash[image] = score(image)
+            hash
           end
-        }
+
+          image, score = images.sort_by { |k, v| v }.last
+          src = image && image['src']
+
+          @logger.info(image.inspect)
+          return src
+
+
+        end
 
 
       end
 
-      def score(src)
+      protected
+
+      def score(image)
         @logger.info("SCORE START=======================================")
+
         score = 0
+        src = image['src']
+
+        score += 10 if image.key?('title')
+        score += 10 if image.key?('style')
+        score -= 20 if image.parent.name. == "a"
+
+        if image.key?('alt')
+          score += 10
+          alt = image['alt']
+          score += 10 if !alt.empty?
+          score += Math.sqrt(alt.length)
+        end
+
+        if image.key?('id')
+          score += 25
+        end
+
+        if image.key?('width') && image['width'].to_i > 0
+          width = image['width'].to_i
+          score += Math.sqrt(width)
+          @logger.info("width #{width}")
+          @logger.info("width-score #{Math.sqrt(width)}")
+        end
+
+        if image.key?('height') && image['height'].to_i > 0
+          height = image['height'].to_i
+          score += Math.sqrt(height)
+        end
+
+
         score += $image_pos
-        $image_pos -= 1
-        score -= 10 if src.include?('logo')
-        score -= 20 if src.include?('icon')
-        score -= 30 if src.include?('reklama')
+        $image_pos -= 5
+        score -= 30 if src.include?('logo')
+        score -= 40 if src.include?('icon')
+        score -= 50 if src.include?('reklama')
+
+        score += 10 if src.include?('http')
+        score += 20 if src.include?('jpg') || src.include?('JPG')
+        score += 20 if src.include?('jpeg') || src.include?('JPEG')
+
         @logger.info(src.inspect)
         @logger.info(score)
         @logger.info("SCORE END=======================================")
 
         score
+      end
+
+      def normalize_src(images)
+        images.each { |image|
+          image.each { |attr_name, attr_value|
+            IMG_SRC.each { |src_name|
+              if attr_name == src_name
+                image['src']= attr_value
+              end
+            }
+          }
+        }
+
+        return images
+      end
+
+      def remove_undesired(images)
+        tmp = []
+        unique = []
+        images.each { |image|
+          src = image['src']
+          include = true
+          if !unique.include?(src.to_s)
+            unique.push(src.to_s)
+            IMG_RMV.each { |undesired|
+
+              if src.to_s.include?(undesired)
+                include = false
+              end
+            }
+          else
+            include = false
+          end
+
+          tmp.push(image) if include
+        }
+
+        return tmp
       end
 
     end

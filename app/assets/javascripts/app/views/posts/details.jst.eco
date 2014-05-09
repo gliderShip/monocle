@@ -29,7 +29,7 @@
 
 <div class="video-container">
 <% if @post.get('oembed').src: %>
-    <iframe seamless class="article-video" width="430px" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="" height="240px">
+    <iframe scrolling="no" seamless class="article-video" width="430px" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="" height="240px">
     </iframe>
 <% end %>
 <div class="video-container">
