@@ -13,7 +13,8 @@ module Brisk
           'data-src',
       ]
 
-      IMG_RMV =[".png", ".gif", "blank", "banner", "subscribe", "transparent", "placeholder", "webtrekk", "noscript", "tradedoubler"]
+      IMG_RMV =["reklama", ".png", ".gif", "blank", "banner", "subscribe", "transparent", "placeholder", "webtrekk", "noscript", "tradedoubler", "sample"]
+      REMOVE = '[class*="sidepanel"], [id*="sidepanel"]'
 
       $image_pos = 50
 
@@ -22,6 +23,7 @@ module Brisk
 
       def parse(base)
 
+        base.css(REMOVE).remove
         images = base.css('img')
 
         @logger.info("IMAGES START=======================================")

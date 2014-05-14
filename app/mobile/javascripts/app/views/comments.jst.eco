@@ -3,106 +3,60 @@
 </header>
 
 <div class="scroll">
-  <section>
-    <header>
-      <h1>
-        <a href="<%= @post.get('url') %>">
-          <%= @post.get('title') %>
-          <br />
-          <span class="meta-point domain">
-            <%= @post.get('domain') %>
-          </span>
-        </a>
-      </h1>
-
-      <div class="meta">
-        <span class="meta-point votes">
-          <span class="vote <% if @post.get('voted'): %>voted<% end %>">
-            <%= @post.get('votes') %>
-          </span>
-          <%= @helpers.pluralize('point', @post.get('votes')) %>
-          by
-          <span class="user" > <%= @post.get('user_handle') %></span>
-        </span>
-
-        <span class="meta-point discuss">
-          <time title="<%= @post.get('created_at') %>"><%= @post.ago() %></time>
-          · <%= @post.get('comments_count') %>
-            <%= @helpers.pluralize('comment', @post.get('comments_count')) %>
-        </span>
-      </div>
-    </header>
-
-
-<% if @post.get('icon'): %>
-      <a class="icon" href="<%= @post.get('url') %>" target="_blank">
-        <img src="<%= @post.get('icon') %>">
-      </a>
-    <% end %>
-
-<span class="summary-container">
-<% if @post.get('summary'): %>
-        <p class="summary">
-          <%= @post.truncatedSummary(500) %>
-        </p>
-      <% end %>
-</span>
-
-
-
-    <section class="thread">
-      <div class="activity-indicator"></div>
-    </section>
-
-
-
-
-
     <section>
-      <h1 class="title">
-         <a href="<%= @post.get('url') %>" target="_blank"><%= @post.get('title') %></a>
-      </h1>
+        <header>
+            <h1>
+                <a href="<%= @post.get('url') %>">
+                    <%= @post.get('title') %>
+                    <br />
+                    <span class="meta-point domain">
+                        <%= @post.get('domain') %>
+                    </span>
+                </a>
+            </h1>
 
-      <div class="meta">
-        <span class="meta-point votes vote <% if @post.get('voted'): %>voted<% end %>">
-          <%= @post.get('votes') %>
+            <div class="meta">
+                <span class="meta-point votes">
+                    <span class="vote <% if @post.get('voted'): %>voted<% end %>">
+                    <%= @post.get('votes') %>
+                </span>
+                <%= @helpers.pluralize('point', @post.get('votes')) %>
+                by
+                <span class="user" > <%= @post.get('user_handle') %>
+                </span>
+
+                <span class="meta-point discuss">
+                    <time title="<%= @post.get('created_at') %>"><%= @post.ago() %>
+                    </time>
+                    · <%= @post.get('comments_count') %>
+                    <%= @helpers.pluralize('comment', @post.get('comments_count')) %>
+                </span>
+            </div>
+        </header>
+
+        <span class="summary-container">
+            <% if @post.get('oembed') and @post.get('oembed').src: %>
+                <div class="video-container">
+                <iframe style="visibility:hidden;" onload="this.style.visibility = 'visible';" class="article-video" src="<%= @post.get('oembed').src %>" frameborder="0" scrolling="no" seamless allowfullscreen="" >
+                </iframe>
+                </div>
+            <% else: %>
+                <% if @post.get('icon'): %>
+                    <a class="icon" href="<%= @post.get('url') %>" target="_blank">
+                        <img src="<%= @post.get('icon') %>">
+                    </a>
+                <% end %>
+            <% end %>
+
+            <% if @post.get('summary'): %>
+                <p class="summary">
+                    <%= @post.truncatedSummary(600) %>
+                </p>
+            <% end %>
         </span>
 
-        <span class="meta-point domain">
-          <a href="<%= @post.get('url') %>">
-            <%= @post.get('domain') %>
-          </a>
-        </span>
-
-        <time class="meta-point discuss" title="<%= @post.get('created_at') %>">
-          <%= @post.ago() %>
-        </time>
-
-        <span class="meta-point user-handle">
-          by <a data-user-id="<%= @post.get('user_id') %>">
-            <%= @post.get('user_handle') %>
-          </a>
-        </span>
-      </div>
-
-
-    <% if @post.get('oembed').src: %>
-        <iframe seamless class="article-video" width="430px" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="" height="240px" style="
-            margin-top: 15px;
-            margin-left: 30px;
-            margin-right: auto;
-            position: static;
-        ">
-        </iframe>
-    <% end %>
-
-
-
+        <section class="thread">
+          <div class="activity-indicator"></div>
+        </section>
     </section>
-
-  </section>
-
-
-
-
 </div>

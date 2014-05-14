@@ -156,6 +156,10 @@ module Brisk
         self.oembed      = Parsers::OEmbed.parse(document)
         self.oembed['src'] = self.oembed['src'] || self.open_graph['v:src'] || microdata['videoUrl']
 
+        if !self.oembed['src'].to_s.include?("www") && self.oembed['src'].to_s.start_with?('/') && !self.oembed['src'].to_s.start_with?('//')
+          self.oembed['src'] = URI.parse(url).scheme + "://" + URI.parse(url).host + self.oembed['src']
+        end
+
         self.html_title  = microdata['headline'] || self.open_graph['og:title'] || Parsers::HTMLTitle.parse(ourl)
         self.preview_url = self.open_graph['og:image'] || microdata['image'] || Parsers::Preview.parse(document)
 
@@ -165,6 +169,7 @@ module Brisk
         description      = o_description.length > m_description.length ? o_description : m_description
         psummary         = Parsers::Summary.parse(read_parsed, nil)
         self.summary     = microdata['articleBody'] || (psummary.to_s.length > description.to_s.length ? psummary : description)
+        self.summary.gsub!(/\s+/, " ").strip!
         self.body        = read_parsed || ''
 
           self.link_icons  = Parsers::LinkIcon.parse(document)

@@ -4,8 +4,10 @@
     <% else: %>
         <img src="<%= '/assets/missingal.png' %>" width="75px" height="50px">
     <% end %>
-    <% if @post.get('oembed').src: %>
-        <img src="<%= '/assets/thumb-tube.png' %>" class="img-video-overlay"  width="25px" height="18px">
+    <% if @post.get('oembed'): %>
+        <% if @post.get('oembed').src: %>
+            <img src="<%= '/assets/thumb-tube.png' %>" class="img-video-overlay"  width="25px" height="18px">
+         <% end %>
     <% end %>
 </a>
 <% if @index?: %>

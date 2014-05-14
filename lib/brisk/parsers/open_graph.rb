@@ -24,7 +24,7 @@ module Brisk
           'article:tag'
       ]
 
-      IMG = ['.jpg', '.jpeg', '.png']
+      IMG = ['.jpg', '.jpeg', '.png', '.gif']
 
       REMOVE_IMG = ['logo', 'icon', 'blank', 'reklama', 'banner', 'placeholder']
 

@@ -6,19 +6,9 @@ module Brisk
     module OEmbed
       extend self
 
-      # PROPERTIES = {
-      #     'version' => nil,
-      #     'type' => nil,
-      #     'provider_name' => nil,
-      #     'provider_url' => nil,
-      #     'width' => nil,
-      #     'height' => nil,
-      #     'title' => nil,
-      #     'author_name' => nil,
-      #     'author_url' => nil,
-      #     'html' => nil,
-      #     'src' => nil,
-      # }
+      REMOVE_TAG = ''
+      REMOVE_CLASS = '[class*="tools"], [class*="share"], [class*="history"], [style*="display:none"]'
+      REMOVE_ID = '[id*="-slider"]'
 
       VIDEO_HOSTS = ['youtube', 'youtu', 'vimeo', 'video', 'embed']
 
@@ -33,6 +23,8 @@ module Brisk
       @logger = Logger.new('log/oembed.log')
 
       def parse(document)
+
+        document.css(REMOVE_ID).remove
 
         @logger.info("INPUT START=======================================")
         @logger.info(document.inspect)
@@ -52,9 +44,9 @@ module Brisk
                   if video[attr].include?(host)
                     properties['src'] = video[attr]
                     if properties['src'].include?('?')
-                      properties['src'] += '&width=430&height=240'
+                      properties['src'] += '&width=430&height=217'
                     else
-                      properties['src'] += '?width=430&height=240'
+                      properties['src'] += '?width=430&height=217'
                     end
                     videos.remove
                     ("PROPERTIES  :" + properties.inspect)

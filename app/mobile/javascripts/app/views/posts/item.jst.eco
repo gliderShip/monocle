@@ -2,14 +2,14 @@
 <a class="thumbnail" href="<%= @post.get('url') %>" target="_blank">
 <span>
 <% if @post.get('icon'): %>
-    <img src="<%= @post.get('icon') %>" width="70px" height="70px">
+    <img src="<%= @post.get('icon') %>" width="75px" height="50px">
 <% else: %>
   <img src="<%= '/assets/missingal@2x.png' %>" width="70px" height="70px">
 <% end %>
 </span>
 </a>
 
-  <a href="<%= @post.get('url') %>">
+  <a class="content" href="<%= @post.get('url') %>">
     <h5 class="title <% if @post.get('visited'): %>visited<% end %>">
       <%= @post.get('title') %>
     </h5>

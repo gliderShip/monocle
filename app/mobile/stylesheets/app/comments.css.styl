@@ -2,16 +2,18 @@
 
 .mobile .comments section {
 
-  padding: 0px 25px;
   p{
+    font-size: .9em;
+    line-height: 1.4em;
     color: #282828;
+    word-wrap: break-word;
   }
   header {
     padding: 8px 0px;
     user-select: none;
     position: relative
     max-width: 590px
-    margin: 0 auto
+    margin: 0 5%;
     margin-bottom: 12px;
     border-bottom: 1px solid #e3e3e3;
 
@@ -20,7 +22,7 @@
       font-stretch: italic;
       font-weight: 700
       color: #3d525e;
-      font-size: 24px
+      font-size: 1.3em;
 
       line-height: 1.2em;
       margin: 0;
@@ -97,8 +99,6 @@
       box-pack: justify
     }
 
-
-
     .meta-point.discuss {
       text-align: right
       display: block
@@ -113,4 +113,40 @@
       margin: 8px 0;
     }
   }
+
+  .video-container {
+    background-image: url("vloading4.gif")
+    background-repeat:no-repeat;
+    background-position:center;
+    display: block;
+    width: 300px;
+    height: 167px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .article-video {
+    margin: 0px;
+    padding: 0px;
+    width: 300px;
+    height: 167px;
+    position: absolute;
+  }
+
+  .summary-container a.icon {
+    display: block
+    padding: 0px;
+    margin: 0px auto;
+    font-size: 0px;
+    line-height: 0px;
+    text-align: center;
+
+    img {
+      width: 260px;
+      height: 173px;
+    }
+  }
+
 }

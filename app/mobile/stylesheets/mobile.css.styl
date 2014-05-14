@@ -57,6 +57,21 @@ body {
 .mobile {
   * {
     -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+    .summary-container{
+      display: block
+      padding: 0px 5%;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: block;
+      float: left;
+      color: #d32626;
+      font-family: "Lily Script One",cursive,"Helvetica Neue",Helvetica,Arials,sans-serif;
+      font-size: 24px;
+      margin: 0 16px;
+    }
   }
 
   .view {
@@ -112,9 +127,11 @@ body {
   }
 
   .view > .scroll {
+    background-image: url("/absurdidad.png");
     -webkit-box-flex: 1
     box-flex: 1
     overflow: auto
+    overflow-scrolling: auto
     -webkit-overflow-scrolling: touch
     background-color: #fff
     display: -webkit-box
@@ -126,8 +143,10 @@ body {
   }
 
   .view > .scroll > section {
-    -webkit-box-flex: 1
-    box-flex: 1
+    -moz-box-flex:1.0; /* Firefox */
+    -webkit-box-flex:1.0; /* Safari and Chrome */
+    -ms-flex:1.0; /* Internet Explorer 10 */
+    box-flex:1.0;
     -webkit-overflow-scrolling: touch
     overflow: auto
   }
@@ -147,8 +166,10 @@ body {
 
   .tableview-links li {
     padding: 0
-    display: -webkit-box
-    display: box
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
     width: 100%
 
     font-size: 15px
@@ -174,19 +195,28 @@ body {
   .tableview-links li > a.thumbnail {
     -webkit-touch-callout: none
     padding: 0
-    margin: 5px
-    width: 70px
-    box-flex: 0
+    margin: 10px 5px
+    width: 75px
+
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -ms-box-flex: 0;
+    box-flex: 0;
 
     display: -webkit-box
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+
     box-pack: center
     box-align: center
 
     span {
       display: block
-      width: 70px
-      height: 70px
-      line-height: 50px
+      width: 75px
+      height: 50px
+      font-size: 0px
+      line-height: 0px
 
     }
   }
@@ -197,7 +227,11 @@ body {
     width: 44px
     box-flex: 0
 
-    display: -webkit-box
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+
     box-pack: center
     box-align: center
 

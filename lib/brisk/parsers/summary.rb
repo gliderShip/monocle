@@ -7,12 +7,13 @@ module Brisk
       extend Encoding
 
       REMOVE_TAG = 'h1, h2, h3, h4, h5, pre, code, before, stats, ul, form'
-      REMOVE_CLASS = '[class="source"],[class="image"],[class*="header"], [class*="before"], [class*="stats"], [class*="date"], [class*="img"], [class="reader"], [class*="skip"], [class*="tools"], [class*="share"], [class*="history"], [style*="display:none"]'
+      REMOVE_CLASS = '[class*="postim-titull"], [class*="caption"], [class="source"],[class="image"],[class*="header"], [class*="before"], [class*="stats"], [class*="date"], [class*="img"], [class="reader"], [class*="skip"], [class*="tools"], [class*="share"], [class*="history"], [style*="display:none"]'
       REMOVE_ID = '[id*="before"], [id*="stats"], [id*="tools"], [id*="share"]'
 
       @logger = Logger.new('log/summary.log')
 
       SUMMARY_CSS = {
+          'shek' => 'div[class*="postim-text"]',
           'alt' => 'div[class*="article-body"]',
           'usmag1'          => 'div[id*="article-body"]',
           'corriere' => 'div[class*="article-content"]',
@@ -96,6 +97,7 @@ module Brisk
           @logger.info(text)
           @logger.info("SNIPPET END=======================================")
           text = text.select { |t| t.start_with?("«") || t.length > 20 }
+          base.text.gsub!(/\s+/, ' ')
           text = text.join(' ')[0..900]
           return text
         end

@@ -27,12 +27,14 @@
     </span>
   </div>
 
-<div class="video-container">
-<% if @post.get('oembed').src: %>
-    <iframe scrolling="no" seamless class="article-video" width="430px" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="" height="240px">
-    </iframe>
+<% if @post.get('oembed'): %>
+    <% if @post.get('oembed').src: %>
+        <div class="video-container">
+            <iframe  width="430px" height="242px" style="visibility:hidden;" onload="this.style.visibility = 'visible';" scrolling="no" seamless class="article-video" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="true" >
+            </iframe>
+        </div>
+    <% end %>
 <% end %>
-<div class="video-container">
 
     <p class="summary">
   <% if @post.get('icon'): %>
