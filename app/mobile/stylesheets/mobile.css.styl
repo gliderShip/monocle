@@ -191,7 +191,6 @@ body {
 
   .tableview-links li > a {
     display: block
-    padding: 10px
     text-decoration: none
     box-flex: 1
     box-sizing: border-box
@@ -228,15 +227,18 @@ body {
     }
   }
 
-  .tableview-links li > a.thumbnail {
+  .thumbnail {
     position: absolute
-    float: left
-    top: 0px
-    bottom: 0px
-    left: 0px
+    top: 0px;
+    bottom: 0px;display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -ms-flexbox;
+    display: box;
+
     -webkit-touch-callout: none
-    padding: 0
-    margin: 10px 5px
+    margin: 0px
+    margin-right: 8px
     width: 75px
 
     span {

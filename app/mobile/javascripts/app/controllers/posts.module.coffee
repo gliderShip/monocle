@@ -18,6 +18,7 @@ class Posts extends Controller
     #@on 'click', 'a[href]', @cancel
     @on 'tap', 'a[href]', @tap
     @on 'click tap', 'a.more', @tapMore
+    @on 'click tap', 'a.content', @tapMore
     @on 'tap', 'a.next', @tapNext
     @on 'tap', '.item', @highlight
 
