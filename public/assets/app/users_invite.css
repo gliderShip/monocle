@@ -1,0 +1,34 @@
+.overlay .panel.users-invite {
+  width: 50%;
+  min-width: 320px;
+}
+.overlay .panel.users-invite p {
+  margin-bottom: 8px;
+}
+.overlay .panel.users-invite p:last-child {
+  margin-bottom: 0;
+}
+.overlay .panel.users-invite button {
+  height: 32px;
+  font-size: 13px;
+  padding: 0 12px;
+}
+.overlay .panel.users-invite form {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -webkit-box-pack: start;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  -moz-box-pack: start;
+  padding: 12px 0 8px 0;
+}
+.overlay .panel.users-invite form input {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  margin-right: 8px;
+}

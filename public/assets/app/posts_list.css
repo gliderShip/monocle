@@ -1,0 +1,124 @@
+.app .posts-list h3.empty,
+.overlay .posts-list h3.empty {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px 0;
+}
+.app .posts-list .item,
+.overlay .posts-list .item {
+  -webkit-box-shadow: #d7e1e7 0 -1px 0 inset;
+  -moz-box-shadow: #d7e1e7 0 -1px 0 inset;
+  -ms-box-shadow: #d7e1e7 0 -1px 0 inset;
+  -o-box-shadow: #d7e1e7 0 -1px 0 inset;
+  box-shadow: #d7e1e7 0 -1px 0 inset;
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+.app .posts-list .item section,
+.overlay .posts-list .item section {
+  display: inline-block;
+}
+.app .posts-list .item .title,
+.overlay .posts-list .item .title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #3d525e;
+  font-size: 13px;
+  white-space: normal;
+  padding-right: 95px;
+}
+.app .posts-list .item .title a,
+.overlay .posts-list .item .title a {
+  color: #2c414d;
+}
+.app .posts-list .item .title a:hover,
+.overlay .posts-list .item .title a:hover {
+  color: #d32626;
+  text-decoration: none;
+}
+.app .posts-list .item .title a:visited,
+.overlay .posts-list .item .title a:visited {
+  color: #838c98;
+}
+.app .posts-list .item .title.visited a,
+.overlay .posts-list .item .title.visited a {
+  color: #838c98;
+}
+.app .posts-list .item:hover .title a,
+.overlay .posts-list .item:hover .title a {
+  color: #d32626;
+  text-decoration: none;
+}
+.app .posts-list .item .index,
+.overlay .posts-list .item .index {
+  vertical-align: top;
+  position: relative;
+  left: -1px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  line-height: 1.5em;
+  white-space: normal;
+  font-size: 13px;
+  color: #4b525b;
+}
+.app .posts-list .item time,
+.overlay .posts-list .item time {
+  color: #77808c;
+  font-size: 11px;
+  font-weight: 700;
+  position: absolute;
+  right: 16px;
+  top: 50px;
+}
+.app .posts-list .item .meta-point,
+.overlay .posts-list .item .meta-point {
+  font-size: 12px;
+  color: #77808c;
+}
+.app .posts-list .item .meta-point a,
+.overlay .posts-list .item .meta-point a {
+  color: #77808c;
+}
+.app .posts-list .item .meta-point:after,
+.overlay .posts-list .item .meta-point:after {
+  content: ' · ';
+  font-size: 13px;
+  color: #77808c;
+  line-height: 1.7em;
+}
+.app .posts-list .item .meta-point:last-child:after,
+.overlay .posts-list .item .meta-point:last-child:after {
+  display: none;
+}
+.app .posts-list .item.active,
+.overlay .posts-list .item.active {
+  background-color: #f8fafb;
+}
+.app .posts-list .item .icon-mini,
+.overlay .posts-list .item .icon-mini {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  display: inline-block;
+  width: 75px;
+  height: 50px;
+}
+.app .posts-list .item .img-thumb,
+.overlay .posts-list .item .img-thumb {
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+.app .posts-list .item .img-video-overlay,
+.overlay .posts-list .item .img-video-overlay {
+  position: absolute;
+  opacity: 0.9;
+  bottom: 0px;
+  right: 0px;
+}

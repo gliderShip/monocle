@@ -1,0 +1,61 @@
+.mobile .posts-list li > a.content {
+  position: relative;
+  min-height: 50px;
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+}
+.mobile .posts-list li > a:visited .title {
+  color: #838c98;
+}
+.mobile .posts-list .item .title {
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  color: #3d525e;
+  font-size: 15px;
+  line-height: 1.3em;
+  margin: 0;
+  margin-left: 85px;
+}
+.mobile .posts-list .item .title.visited {
+  color: #757f8c;
+}
+.mobile .posts-list .item .meta {
+  display: block;
+  text-align: right;
+  padding-right: 2%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: #77808c;
+  line-height: 1.2em;
+}
+.mobile .posts-list .item .domain {
+  color: #385487;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-right: 1px solid #e3e3e3;
+  padding-right: 8px;
+  max-width: 43%;
+}
+.mobile .posts-list .item .votes {
+  padding-left: 5px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 47%;
+}
+.mobile .posts-list a.next {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  line-height: 3em;
+  padding: 10px;
+  display: block;
+  color: #385487;
+  text-align: center;
+  font-weight: bold;
+}

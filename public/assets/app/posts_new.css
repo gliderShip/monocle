@@ -1,0 +1,23 @@
+.overlay .panel.posts-new {
+  width: 280px;
+}
+.overlay .panel.posts-new article {
+  margin: 30px 30px 20px 30px;
+}
+.overlay .panel.posts-new input {
+  margin-bottom: 10px;
+  height: 38px;
+  padding: 0 10px;
+}
+.overlay .panel.posts-new input:last-child {
+  margin-bottom: 0;
+}
+.overlay .panel.posts-new footer {
+  margin: 0 30px 25px 30px;
+}
+.overlay .panel.posts-new button {
+  width: 100%;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+}

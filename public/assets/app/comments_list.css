@@ -1,0 +1,101 @@
+.comments-list .comment {
+  padding: 1px 0 0 30px;
+  position: relative;
+}
+.comments-list .comment .avatar {
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.comments-list .comment .avatar img {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  display: block;
+  height: 22px;
+  width: 22px;
+}
+.comments-list .comment .avatar:before {
+  content: "";
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0,0,0,0.08) 0 1px 1px inset;
+  -moz-box-shadow: rgba(0,0,0,0.08) 0 1px 1px inset;
+  -ms-box-shadow: rgba(0,0,0,0.08) 0 1px 1px inset;
+  -o-box-shadow: rgba(0,0,0,0.08) 0 1px 1px inset;
+  box-shadow: rgba(0,0,0,0.08) 0 1px 1px inset;
+  display: block;
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.comments-list .comment .meta {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.comments-list .comment .user a {
+  color: #d32626;
+  font-weight: 700;
+}
+.comments-list .comment .body {
+  padding: 2px 0 20px;
+}
+.comments-list .comment .body ul,
+.comments-list .comment .body pre {
+  margin: 0 0 7px 0;
+}
+.comments-list .comment .body p {
+  margin-bottom: 7px;
+}
+.comments-list .comment .body p:last-child {
+  margin-bottom: 0;
+}
+.comments-list .comment .body blockquote {
+  margin: 7px 0 7px 0;
+  padding-left: 10px;
+  border-left: 2px solid #ebeef2;
+}
+.comments-list .comment .body a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comments-list .comment .comments-new-threaded,
+.comments-list .comment .comments-edit {
+  display: none;
+}
+.comments-list .comment.editing > .body {
+  display: none;
+}
+.comments-list .comment.editing > .comments-edit {
+  display: block;
+}
+.comments-list .comment.replying > .comments-new-threaded {
+  display: block;
+}
+.comments-list .comment.thread {
+  -webkit-box-shadow: #ebeef2 0 -1px 0 inset;
+  -moz-box-shadow: #ebeef2 0 -1px 0 inset;
+  -ms-box-shadow: #ebeef2 0 -1px 0 inset;
+  -o-box-shadow: #ebeef2 0 -1px 0 inset;
+  box-shadow: #ebeef2 0 -1px 0 inset;
+  margin: 30px 30px 5px 30px;
+}
+.comments-list .comment.thread:last-child {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}

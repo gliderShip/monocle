@@ -1,0 +1,57 @@
+.comments-new {
+  -webkit-box-shadow: #ebeef2 0 -1px 0 inset;
+  -moz-box-shadow: #ebeef2 0 -1px 0 inset;
+  -ms-box-shadow: #ebeef2 0 -1px 0 inset;
+  -o-box-shadow: #ebeef2 0 -1px 0 inset;
+  box-shadow: #ebeef2 0 -1px 0 inset;
+  background: #f8fafb;
+  position: relative;
+  box-sizing: border-box;
+}
+.comments-new section {
+  position: relative;
+  padding: 15px 30px;
+}
+.comments-new:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -4px;
+  height: 4px;
+  -webkit-box-shadow: #ebeef2 0 -1px 0 inset, rgba(0,0,0,0.01) 0 1px 1px;
+  -moz-box-shadow: #ebeef2 0 -1px 0 inset, rgba(0,0,0,0.01) 0 1px 1px;
+  -ms-box-shadow: #ebeef2 0 -1px 0 inset, rgba(0,0,0,0.01) 0 1px 1px;
+  -o-box-shadow: #ebeef2 0 -1px 0 inset, rgba(0,0,0,0.01) 0 1px 1px;
+  box-shadow: #ebeef2 0 -1px 0 inset, rgba(0,0,0,0.01) 0 1px 1px;
+}
+.comments-new textarea {
+  height: 38px;
+  min-height: 38px;
+}
+.comments-new button {
+  display: none;
+  position: absolute;
+  bottom: 23px;
+  right: 35px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.6;
+  -webkit-transition: 200ms linear opacity;
+  -moz-transition: 200ms linear opacity;
+  -ms-transition: 200ms linear opacity;
+  -o-transition: 200ms linear opacity;
+  transition: 200ms linear opacity;
+}
+.comments-new button:hover {
+  opacity: 1;
+}
+.comments-new form.expanded textarea {
+  min-height: 100px;
+}
+.comments-new form.expanded button {
+  display: block;
+}
