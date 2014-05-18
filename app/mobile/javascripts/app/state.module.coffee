@@ -12,6 +12,7 @@ class State extends Model
 
   toPreviousView: =>
     @view = @previousView
+    console.log(@view)
     @previousView = null
     @trigger('view', @view, 'ltr')
 

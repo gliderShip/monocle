@@ -1,5 +1,6 @@
 <li class="item tappable" data-id="<%= @post.get('id') %>">
 <a class="thumbnail" href="<%= @post.get('url') %>" target="_blank">
+<div class="dumb">
 <span>
 <% if @post.get('icon'): %>
     <img src="<%= @post.get('icon') %>" width="75px" height="50px">
@@ -7,6 +8,7 @@
   <img src="<%= '/assets/missingal@2x.png' %>" width="70px" height="70px">
 <% end %>
 </span>
+</div>
 </a>
 
   <a class="content" href="<%= @post.get('url') %>">
@@ -14,25 +16,29 @@
       <%= @post.get('title') %>
     </h5>
 
-    <div class="meta">
-      <span class="meta-point domain">
-        <%= @post.get('domain') %>
-      </span>
 
-      <span class="meta-point votes">
-        <span class="vote <% if @post.get('voted'): %>voted<% end %>">
-          <%= @post.get('votes') %>
+  </a>
+<a class="more">
+    <div class="dumb">
+        <span>
         </span>
-        <%= @helpers.pluralize('point', @post.get('votes')) %>
-        by
-        <%= @post.get('user_handle') %>
-      </span>
-
-
     </div>
-  </a>
+</a>
 
-  <a class="more">
-    <span></span>
-  </a>
+  <div class="meta">
+        <span class="meta-point domain">
+          <%= @post.get('domain') %>
+        </span>
+
+        <span class="meta-point votes">
+          <span class="vote <% if @post.get('voted'): %>voted<% end %>">
+            <%= @post.get('votes') %>
+          </span>
+          <%= @helpers.pluralize('point', @post.get('votes')) %>
+          by
+          <%= @post.get('user_handle') %>
+        </span>
+
+
+      </div>
 </li>

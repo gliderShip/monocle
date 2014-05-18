@@ -15,9 +15,9 @@ class Posts extends Controller
     @collection.on 'add', @addOne
     @collection.fetch().done(@done)
 
-    @on 'click', 'a[href]', @cancel
+    #@on 'click', 'a[href]', @cancel
     @on 'tap', 'a[href]', @tap
-    @on 'tap', 'a.more', @tapMore
+    @on 'click tap', 'a.more', @tapMore
     @on 'tap', 'a.next', @tapNext
     @on 'tap', '.item', @highlight
 
@@ -54,7 +54,6 @@ class Posts extends Controller
 
   tapMore: (e) =>
     e.preventDefault()
-
     $item  = $(e.currentTarget).closest('.item')
     postID = $item.data('id')
     post   = Post.find(postID)

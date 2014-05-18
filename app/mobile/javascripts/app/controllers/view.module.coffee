@@ -6,7 +6,7 @@ class View extends Controller
     super
     @on('touchstart', '> .scroll', @hideAddressBar)
     @on('tap', '> header', @tapHeader)
-    @on('tap', '.header-back-button', @back)
+    @on('tap click', '.header-back-button', @back)
 
   # Protected
 
