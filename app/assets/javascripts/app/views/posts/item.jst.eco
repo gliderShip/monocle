@@ -12,12 +12,15 @@
 </a>
 
 <section>
-    <% if @index?: %>
-      <section class="index">
-        <%= @index + 1 %>.
-      </section>
-    <% end %>
+
   <h5 class="title <% if @post.get('visited'): %>visited<% end %>">
+
+   <% if @index?: %>
+        <section class="index">
+          <%= @index + 1 %>.
+        </section>
+      <% end %>
+
     <a href="<%= @post.get('url') %>">
       <%= @helpers.truncate @post.get('title'), 75 %>
     </a>
