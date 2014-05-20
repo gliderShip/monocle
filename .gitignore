@@ -1,4 +1,7 @@
 .DS_Store
-#.env
+.env
 mails
 tmp
+log
+public
+thin_config.yml
