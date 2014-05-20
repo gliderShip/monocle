@@ -7,6 +7,6 @@
     <textarea required></textarea>
   </article>
   <footer>
-    <button type="submit" class="btn">Dergo Komentin</button>
+    <button type="submit" class="btn">Dërgo Komentin</button>
   </footer>
 </form>

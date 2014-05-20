@@ -5,67 +5,69 @@ module Brisk
     module Mailer extend self
       def user_invite!(invite)
         Mail.deliver do
-          from    'Quid Fit? <pulse@harlembiospace.com>'
+          from    'albanania <mail@albanania.com>'
           to      invite.email
-          subject "An invitation to join Quid Fit? from #{invite.user_name}."
+          subject "#{invite.user_name} ju fton personalisht tek albanania.com"
           body    <<-EOF.dedent
             Përshëndetje,
 
-            #{invite.user_name} ju fton ti bashkoheni Masës-Kritike, nje website i dedikuar ndarjes ne kohë reale te temave, artikujve, informacioneve dhe materialeve me interesante.
+            #{invite.user_name} ju fton ti bashkoheni albanania.com, nje website i dedikuar ndarjes ne kohë reale te temave, artikujve, informacioneve dhe materialeve me interesante.
             Per tu informuar dhe debatuar ne kohe reale mbi aktualitetin, politiken, ekonomin dhe gjithcka tjeter.
 
             Për të mësuar më shumë, hidhi një sy:
 
-            http://glidership.com:3000/claim/#{invite.code}
+            http://albanania.com/claim/#{invite.code}
 
             Gjithë te mirat,
             
-            Masa-Kritike
+            albanania.com
 
         end
       end
 
       def create_and_deliver_password_change!(user, password)
         Mail.deliver do
-          from    'Masa-Kritike <glidership@hotmail.com>'
+          from    'albanania <mail@albanania.com>'
           to      user.email
           subject 'Ndryshoni Fjalëkalimin'
           body    <<-EOF.dedent
-            Hi there,
+            Përshëndetje,
 
-            A password change was requested on your behalf. You can login with the password below.
+            Keni kërkuar ndryshimin e fjalëkalimit. Ju mund të identifikoheni me fjalëkalimin më poshtë.
 
-            New Password: #{password}
+            Fjalëkalimi i Ri: #{password}
 
-            Please change the password after logging in.
+            Ju lutemi të ndryshojni fjalëkalimin menjëherë pasi te kyçeni!
 
-            Thanks,
-            Admin
+            Gjithë te mirat,
+
+            albanania.com
           EOF
         end
       end
 
       def user_activate!(user)
         Mail.deliver do
-          from    'Quid Fit? <glidership@hotmail.com>'
+          from    'albanania <mail@albanania.com>'
           to      user.email
-          subject 'Welcome to Quid Fit?!'
+          subject 'Mirë se vini tek albanania.com!'
           body    <<-EOF.dedent
-            Hi there,
+            Përshëndetje,
 
-            Good news! #{user.parent_name || 'Admin'} has activated your Quid Fit? account.
+            Lajme të mira! #{user.parent_name || 'Admin'} ka aktivizuar llogarinë tuaj tek albanania.com!
 
-            Thanks,
-            Admin
+            Gjithë te mirat,
+
+            albanania.com
           EOF
         end
       end
 
       def feedback!(text, email = nil)
         Mail.deliver do
-          from    'Quid Fit? <glidership@hotmail.com>'
+          from    'albanania <mail@albanania.com>'
           to      'glidership@hotmail.com'
-          subject 'Quid Fit? Sugjerime'
+          subject 'albanania.com Sugjerime'
           reply_to email if email.present?
           body     text
 

@@ -40,7 +40,7 @@ module Brisk
 
         Stylus.setup(mobile)
 
-        app.set :asset_host, 'http://www.albanania.com/'
+        app.set :asset_host, ''
 
         app.configure :development do
           assets.cache = Sprockets::Cache::FileStore.new('./tmp')

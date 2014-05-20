@@ -1,9 +1,10 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Quid Fit?"
-    xml.description "Realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs."
-    xml.link "http://news.harlembiospace.com/"
+    xml.title "albanania"
+
+    xml.description "Lajme, artikuj, opinione, biseda, ngjarje, diskutime. Gjithçka interesante zgjedhur nga lexuesit."
+    xml.link "http://albanania.com/"
 
     @posts.each do |post|
       xml.item do
@@ -13,8 +14,8 @@ xml.rss :version => "2.0" do
         xml.description(%{
           #{post.summary}
           <p>
-            <a href="#{post.url}">Read more</a> |
-            <a href="#{post.slug_url}">Comments</a>
+            <a href="#{post.url}">Lexo më shumë</a> |
+            <a href="#{post.slug_url}">Komente</a>
           </p>
         })
 

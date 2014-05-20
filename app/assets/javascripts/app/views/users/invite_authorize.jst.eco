@@ -1,10 +1,11 @@
 <header>
-  <h2>Welcome to the club</h2>
+  <h2>Mirë se vini në klub</h2>
 </header>
 
 <article>
   <p>
-    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join Quid Fit?, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs.
+    <strong><%= @invite.get('user_name') %></strong> ju ka ftuar tek albanania.com.
+    Një faqe dedikuar ndarjes në kohë reale te informacioneve dhe artikujve mbi aktualitetin, politikën, ekonomin dhe gjithckaje tjetër me interes.
   </p>
 
 </article>

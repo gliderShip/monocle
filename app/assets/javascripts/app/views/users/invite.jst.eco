@@ -1,16 +1,16 @@
 <header>
-  <h2>Përhap fjalën</h2>
+  <h2>Ftoni miqtë tuaj!</h2>
 </header>
 
 <article>
   <p>
-    Hej, mos harro. Ftesat janë si pluhuri magjik i zanave, duhet perdorur me mase dhe kujdes.
-    Ftoni njerezit qe respektoni dhe opinionet e te cileve kane rendesi per ju.
+    Hej, mos harro. Ftesat janë si pluhuri magjik i zanave, duhen perdorur me mase dhe kujdes.
+    Ftoni njerëzit që respektoni dhe opinionet e të cilëve kanë rëndësi per ju.
   </p>
 
   <% if @user.get('invites_count'): %>
     <p>
-      Te kane ngelur edhe
+      Te kanë ngelur edhe
       <strong>
         <%= @user.get('invites_count') %>
         <%= @helpers.pluralize 'cupon', @user.get('invites_count') %>
@@ -18,7 +18,7 @@
     </p>
 
     <p>
-      Fusni një e-mail më poshtë dhe ne do ti dërgojmë atyre një ftesë për QuidFit?
+      Fusni një e-mail më poshtë dhe ne do ti dërgojmë atyre një ftesë për tu regjistruar tek albanania.com!
     </p>
 
     <form>
@@ -43,8 +43,8 @@
     </form>
   <% else: %>
     <p>
-      Na vjen keq, ju nuk zoterroni ndonjë ftesë tani. 
-      Megjithatë, ne shperndajmë më shumë në mënyrë periodike - 
+      Na vjen keq, ju nuk zotërroni ndonjë ftesë tani.
+      Megjithatë, ne shperndajmë ftesa në mënyrë periodike -
       rikthehuni së shpejti!
     </p>
   <% end %>

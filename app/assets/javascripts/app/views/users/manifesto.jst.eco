@@ -1,14 +1,14 @@
 <header>
-  <h2>Quid Fit?</h2>
+  <h2>albanania</h2>
 </header>
 
 <article>
   <% if @user: %>
-    <p>Welcome <strong><%= @user.get('name') %></strong>,</p>
+    <p>Mirë se vini <strong><%= @user.get('name') %></strong>,</p>
   <% end %>
 
 </article>
 
 <footer>
-  <button class="btn close">Get started</button>
+  <button class="btn close">Vazhdo</button>
 </footer>
