@@ -3,25 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="<%= (@post.summary || 'Albanania').truncate(150) %>">
+  <meta itemprop="inLanguage" content="sq_AL" />
 
   <title><%= @post.title %></title>
 </head>
 <body>
-  <h1><a href="<%= @post.url %>"><%= @post.title %></a></h1>
 
-  <p>
-    <%= @post.summary %>
-    <a href="<%= @post.url %>">Read more</a>
+    <article class="hentry" itemscope itemtype="http://schema.org/Article">
 
-  </p>
- 
-  <% @post.comments.each do |comment| %>
-    <section>
-      <header><%= comment.user_handle %></header>
-      <time><%= comment.created_at.to_s %></time>
-      <%== comment.formatted_body %>
-    </section>
-  <% end %>
-  
+        <h1 class="entry-title" itemprop="name">
+          <a itemprop="url" href="/posts/<%= @post.slug %>"><%= @post.title %></a>
+        </h1>
+
+        <p itemprop="articleBody" class="entry-content">
+            <%= @post.summary %>
+            <a href="/posts/<%= @post.slug %>">Read more</a>
+        </p>
+
+      <% if @post.preview_url %>
+      <figure>
+        <img src="<%= @post.preview_url %>" />
+      </figure>
+      <% end %>
+
+      <% if @post.oembed && @post.oembed['src'] %>
+          <video>
+            <source src="<%= @post.oembed['src'] %>">
+          </video>
+      <% end %>
+
+      Postuar nga: <author itemprop="author"><%= @post.user_handle.to_s %></author>
+
+      <meta itemprop="interactionCount" content="UserPlusOnes:<%= (@post.votes || 0 )%>"/>
+      <meta itemprop="interactionCount" content="UserLikes:<%= (@post.votes || 0 )%>"/>
+      <meta itemprop="interactionCount" content="UserComments:<%= @post.comments.length %>"/>
+      <meta itemprop="commentCount" content="<%= (@post.comments.length || 0 )%>"/>
+
+      <ul id="comments" itemscope itemtype="http://schema.org/UserComments">
+
+        <% @post.comments.each do |comment| %>
+        <li class="comment" itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
+            <header itemprop="creator accountablePerson "><%= comment.user_handle %></header>
+        <time itemprop="commentTime">
+          <%= comment.created_at.to_s %>
+        </time>
+        <p>
+            <%== comment.formatted_body %>
+        </p>
+        </li>
+        <% end %>
+
+       </ul>
+
+      marrë nga: <span itemprop="isBasedOnUrl"> <a itemprop="url" href="/posts/<%= @post.slug %>"><%= @post.url %></a></span>
+    </article>
+
 </body>
 </html>
