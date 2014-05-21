@@ -38,6 +38,16 @@ module Brisk
         json Post.first!(slug: params[:slug])
       end
 
+      get '/v1/posts/slug/:slug/delete' do
+        if current_user.admin?
+          post = Post.first!(slug: params[:slug])
+          post.remove_all_post_votes
+          post.remove_all_post_visits
+          post.remove_all_comments
+          post.delete
+        end
+      end
+
       get '/v1/posts/suggest_title' do
         begin
           document = Nestful.get(params[:url], {}, timeout: 8).body
