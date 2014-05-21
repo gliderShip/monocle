@@ -55,7 +55,8 @@ module Brisk
           'shqipja' => 'div[class*="text"]',
           'panorama_v1' => 'div[class*="post"]',
           'base' => 'p',
-          'strange' => 'font'
+          'strange' => 'font',
+          'kohajone' => 'div[id*="onlyMessage"]'
       }
 
       @logger = Logger.new('log/redability.log')
