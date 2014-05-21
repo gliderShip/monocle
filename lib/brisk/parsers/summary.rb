@@ -6,7 +6,7 @@ module Brisk
       extend self
       extend Encoding
 
-      REMOVE_TAG = 'h1, h2, h3, h4, h5, pre, code, before, stats, ul, form'
+      REMOVE_TAG = 'h1, h2, h3, h4, h5, pre, code, before, stats, ul, form, map'
       REMOVE_CLASS = '[class*="postim-titull"], [class*="caption"], [class="source"],[class="image"],[class*="header"], [class*="before"], [class*="stats"], [class*="date"], [class*="img"], [class="reader"], [class*="skip"], [class*="tools"], [class*="share"], [class*="history"], [style*="display:none"]'
       REMOVE_ID = '[id*="before"], [id*="stats"], [id*="tools"], [id*="share"]'
 
@@ -18,6 +18,7 @@ module Brisk
           'usmag1'          => 'div[id*="article-body"]',
           'corriere' => 'div[class*="article-content"]',
           'sport' => 'div[class*="desc-article"]',
+          'panorama_v0' => 'div[class*="post"] > p',
           'panorama_v1' => 'div[class*="post"]',
           'panorama_v2' => 'div[id*="primary"]',
           'ballkan_v1' => 'td[width="100%"][class^="font1"]',
@@ -79,7 +80,7 @@ module Brisk
         if !nodes.empty?
 
           text = nodes.map { |p|
-            puts p.inspect
+            @logger.info(p.inspect)
             if p.inner_text.strip.length > 4
               if p.name == "strong" || p.name == "em" || p.name == "a"
                 new_content = "«" + p.inner_text.strip + "»"
