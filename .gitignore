@@ -1,6 +1,6 @@
 .DS_Store
 .env
-.idea
+.idea/
 mails
 tmp
 log

@@ -108,6 +108,9 @@ module Brisk
           text = text.select { |t| t.start_with?("«") || t.length > 20 }
           base.text.gsub!(/\s+/, ' ')
           text = text.join(' ')[0..900]
+          @logger.info("TEXT START=======================================")
+          @logger.info(text)
+          @logger.info("TEXT END=======================================")
           return text
         end
 

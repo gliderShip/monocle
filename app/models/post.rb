@@ -167,6 +167,7 @@ module Brisk
         o_description = self.open_graph['og:description'].to_s
         m_description = microdata['description'].to_s
         description      = o_description.length > m_description.length ? o_description : m_description
+        description = description[0..300]
         psummary         = Parsers::Summary.parse(read_parsed, nil)
         self.summary     = microdata['articleBody'] || (psummary.to_s.length > description.to_s.length ? psummary : description)
         self.summary.gsub!(/\s+/, " ").strip!
