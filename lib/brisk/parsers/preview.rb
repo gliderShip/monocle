@@ -98,6 +98,11 @@ module Brisk
 
         score += $image_pos
         $image_pos -= 5
+
+        score -= 10 if src.include?('facebook')
+        score -= 10 if src.include?('twitter')
+        score -= 10 if src.include?('rss')
+
         score -= 30 if src.include?('logo')
         score -= 40 if src.include?('icon')
         score -= 50 if src.include?('reklama')
