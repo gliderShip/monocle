@@ -29,6 +29,7 @@ module Brisk
           'mess' => 'div[class*="articoloContent"]',
           'tmz1' => 'div[class*="post-content"]',
           'tmz2' => 'div[id*="post-content"]',
+          'rd' => 'div[class*="full-article"]',
           'huff1' => 'div[class*="body_text"]',
           'binsider' => 'div [class*="intro-content"]',
           'nfl' => 'div [class="articleText"]',
@@ -52,11 +53,13 @@ module Brisk
           'mess4' => 'div[class*="testo"]',
           'mess5' => 'div[class*="articolo"]',
           'corr2' => 'div[id*="article"]',
+          'corr2' => 'div[id*="article"]',
           'shqipja' => 'div[class*="text"]',
           'panorama_v1' => 'div[class*="post"]',
           'base' => 'p',
           'strange' => 'font',
-          'kohajone' => 'div[id*="onlyMessage"]'
+          'kohajone' => 'div[id*="onlyMessage"]',
+          'rd2' => 'div[id="page"]',
       }
 
       @logger = Logger.new('log/redability.log')
