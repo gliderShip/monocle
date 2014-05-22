@@ -13,8 +13,9 @@ module Brisk
         title = title && title.inner_text.strip
         encode(title)
         title && title.gsub!(/(.*\.com\ -\ |\ \|\ .*Gazeta.*|zzzzzzzz)/, '')
-        if title.to_s.length >= 40 && title.include?(' - ')
-          tr_title = title.split(" - ")[0]
+        if title.to_s.length >= 40 && (title.include?(' - ') || title.include?(' | '))
+          tr_title = title.split(" - ").sort_by(&:length).last
+          tr_title =  tr_title.split(" | ").sort_by(&:length).last unless tr_title.to_s.length < 40
           title =  tr_title unless tr_title.to_s.length < 40
         end
 
