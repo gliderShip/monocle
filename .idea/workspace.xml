@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ff9d7ee-8f00-4f7b-878c-e76326b0bb9f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/brisk/parsers/html_title.rb" afterPath="$PROJECT_DIR$/lib/brisk/parsers/html_title.rb" />
-    </list>
+    <list default="true" id="0ff9d7ee-8f00-4f7b-878c-e76326b0bb9f" name="Default" comment="" />
     <ignored path="monocle.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
