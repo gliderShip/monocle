@@ -81,6 +81,14 @@ module Brisk
 
           text = nodes.map { |p|
             @logger.info(p.inspect)
+
+            p.css('strong').each { |strong|
+              @logger.info("EACH START=======================================")
+              @logger.info(strong)
+              @logger.info("EACH END=======================================")
+              strong.content = "«" + strong.text.strip + "»"
+            }
+
             if p.inner_text.strip.length > 4
               if p.name == "strong" || p.name == "em" || p.name == "a"
                 new_content = "«" + p.inner_text.strip + "»"
