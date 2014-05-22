@@ -59,6 +59,7 @@ module Brisk
           'base' => 'p',
           'strange' => 'font',
           'kohajone' => 'div[id*="onlyMessage"]',
+          'abcnews' => 'div[class*="news-view"]',
           'rd2' => 'div[id="page"]',
       }
 
