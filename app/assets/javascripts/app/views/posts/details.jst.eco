@@ -19,7 +19,6 @@
     <time class="meta-point discuss" title="<%= @post.get('created_at') %>">
       <%= @post.ago() %>
     </time>
-
     <span class="meta-point user-handle">
       by <a data-user-id="<%= @post.get('user_id') %>">
         <%= @post.get('user_handle') %>

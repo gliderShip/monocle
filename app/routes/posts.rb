@@ -1,6 +1,11 @@
 module Brisk
   module Routes
     class Posts < Base
+
+      get '/v1/posts/rescore' do
+        Post.rescore
+      end
+
       get '/v1/posts' do
         json Post.published.limit(
           params[:limit] || 30,
@@ -9,21 +14,22 @@ module Brisk
       end
 
       get '/v1/posts/popular' do
-        json Post.published.limit(
-          params[:limit] || 30,
-          params[:offset]
+        json Post.published.popular.limit(
+                 params[:limit] || 30,
+                 params[:offset]
         )
       end
 
       post '/v1/posts/popular' do
-        json Post.published.paginate(params[:ignore], 30)
+        json Post.published.popular.paginate(params[:ignore], 30)
+
       end
 
       get '/v1/posts/newest' do
         json Post.published.newest.limit(
-          params[:limit] || 30,
-          params[:offset]
-        )
+                 params[:limit] || 30,
+                 params[:offset]
+             )
       end
 
       post '/v1/posts/newest' do

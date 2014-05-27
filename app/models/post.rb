@@ -14,7 +14,32 @@ module Brisk
         end
 
         def ordered
+          dataset = self
+
           order(:published_at.desc)
+        end
+
+        def update_scores(votes, published_at, now)
+          # g - Gravity
+          # w - Weight of Votes compared to hour
+          # p - Votes
+          # t - Post age in hours
+          # score = p*weight / (t+1)
+
+          post_hour_epoch = published_at.extract('epoch')/3600
+          w = 5.0
+          t = now - post_hour_epoch
+
+          return votes*w/(t + 1.0)
+        end
+
+        def rescore
+          now = Sequel.lit('NOW()').extract('epoch') / 3600
+          Post.order(:score.desc).limit(200).update(:score => update_scores(:votes, :published_at, now))
+        end
+
+        def popular
+          order(:score.desc)
         end
 
         def newest
@@ -22,7 +47,7 @@ module Brisk
         end
 
         def published
-          where(~:published_at => nil)
+          where(~:published_at => nil).limit(1000)
         end
 
         def search(query)
@@ -55,6 +80,16 @@ module Brisk
 
           dataset.limit(limit)
         end
+
+        def ignore(ignore = nil)
+          dataset = self
+
+          if ignore
+            dataset = dataset.exclude(:id => Array(ignore))
+          end
+          dataset.limit(1000)
+        end
+
       end
 
       # Relationships
@@ -98,6 +133,22 @@ module Brisk
         end
 
         super(value)
+      end
+
+      def calculate_score
+        # w - Weight of votes compared to hour
+        # p - Votes
+        # score = p*w / (t+1)
+        #
+        w = 5.0
+        now = Time.now.to_i
+        p = votes
+
+        sec = now - ( published_at || created_at || now).to_i
+        t = sec / 3600.0 # .0 for float conversion
+        score = (p*w) / (t+1.0)
+        self.score = score
+        score
       end
 
       def vote!(user)
@@ -258,11 +309,7 @@ module Brisk
         self.domain.gsub!(/\Awww\./, '')  if self.domain
       end
 
-      def calculate_score
-        order = Math.log([votes.abs, 1].max, 10)
-        seconds    = (published_at || created_at || Time.now).to_i
-        self.score = (order + seconds/45000).round(7)
-      end
+
     end
   end
 end
