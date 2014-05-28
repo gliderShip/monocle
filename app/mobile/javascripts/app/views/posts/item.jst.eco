@@ -6,9 +6,9 @@
   <div class="dumb">
     <span>
         <% if @post.get('icon'): %>
-            <img src="<%= @post.get('icon') %>" width="75px" height="50px">
+            <img src="<%= @post.get('icon') %>" width="95px" height="63px">
         <% else: %>
-            <img src="<%= '/assets/missingal@2x.png' %>" width="70px" height="70px">
+            <img src="<%= '/assets/missingal@2x.png' %>" width="95px" height="63px">
         <% end %>
     </span>
   </div>
