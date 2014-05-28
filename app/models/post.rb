@@ -15,6 +15,7 @@ module Brisk
 
         def ordered
           dataset = self
+          dataset = self
 
           order(:published_at.desc)
         end

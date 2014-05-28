@@ -42,7 +42,9 @@
         <%= @post.get('user_handle') %>
       </a>
     </span>
+     <% if @admin: %>
+         score : <%= @helpers.round @post.get('score'), 6 %>
+      <% end %>
   </div>
 </section>
-
 <time title="<%= @post.get('created_at') %>"><%= @post.ago(true) %></time>

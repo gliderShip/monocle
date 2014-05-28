@@ -25,7 +25,7 @@ class PostItem extends Controller
 
   render: =>
     @active = @post is State.get('post')
-    @html @view('posts/item')(this)
+    @html @view('posts/item')(this, @admin=State.hasAdminUser())
     @$el.toggleClass('active', @active)
     @$el.attr('data-id', @post.get('id'))
     @$el.attr('data-cid', @post.cid)

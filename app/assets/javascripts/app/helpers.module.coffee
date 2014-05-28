@@ -36,6 +36,10 @@ truncate = (str, length = 30, truncation = '...') ->
   return str unless str.length > length
   str.slice(0, length - truncation.length) + truncation
 
+
+round = (float , precision) ->
+  float.toFixed(precision)
+
 pluralize = (word, number = 1) ->
   word += 's' if number isnt 1
   word
@@ -56,6 +60,7 @@ module.exports =
   fromNow: fromNow
   escape: escape
   truncate: truncate
+  round: round
   pluralize: pluralize
   crop: crop
 
