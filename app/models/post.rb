@@ -35,7 +35,7 @@ module Brisk
 
         def rescore
           now = Sequel.lit('NOW()').extract('epoch') / 3600
-          Post.order(:score.desc).limit(200).update(:score => update_scores(:votes, :published_at, now))
+          order(:score.desc).limit(200).update(:score => update_scores(:votes, :published_at, now))
         end
 
         def popular

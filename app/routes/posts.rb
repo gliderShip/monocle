@@ -3,7 +3,7 @@ module Brisk
     class Posts < Base
 
       get '/v1/posts/rescore' do
-        Post.rescore
+        json Post.rescore
       end
 
       get '/v1/posts' do
