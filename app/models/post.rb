@@ -15,7 +15,6 @@ module Brisk
 
         def ordered
           dataset = self
-          dataset = self
 
           order(:published_at.desc)
         end
@@ -48,7 +47,7 @@ module Brisk
         end
 
         def published
-          where(~:published_at => nil).limit(1000)
+          where(~:published_at => nil).limit(200)
         end
 
         def search(query)

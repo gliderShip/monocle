@@ -7,7 +7,7 @@ module Brisk
       end
 
       get '/v1/posts' do
-        json Post.published.limit(
+        json Post.published.popular.limit(
           params[:limit] || 30,
           params[:offset]
         )

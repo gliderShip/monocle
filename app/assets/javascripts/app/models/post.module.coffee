@@ -16,6 +16,7 @@ class Post extends Model
   @popular: new PaginatedCollection(
     model: this,
     all: (model, options = {}) ->
+      console.log(options.data)
       $.post(model.uri('popular'), options.data)
     comparator: (a, b) ->
       b.get('score') - a.get('score')

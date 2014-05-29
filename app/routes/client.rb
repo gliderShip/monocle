@@ -41,7 +41,7 @@ module Brisk
         content_type :javascript
 
         posts = fragment do
-          Post.published.limit(25).all
+          Post.published.popular.limit(25).all
         end
 
         @options = {
@@ -55,7 +55,7 @@ module Brisk
       end
 
       get '/', :spider => true do
-        @posts = Post.published.limit(30)
+        @posts = Post.published.popular.limit(25)
         erb :spider_list
       end
 
