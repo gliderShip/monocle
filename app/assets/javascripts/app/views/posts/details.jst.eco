@@ -5,7 +5,7 @@
      <a href="<%= @post.get('url') %>" target="_blank"><%= @post.get('title') %></a>
   </h1>
 
-  <div class="meta">
+    <div class="meta">
     <span class="meta-point votes vote <% if @post.get('voted'): %>voted<% end %>">
       <%= @post.get('votes') %>
     </span>
@@ -24,27 +24,28 @@
         <%= @post.get('user_handle') %>
       </a>
     </span>
-  </div>
+    </div>
 
-<% if @post.get('oembed'): %>
-    <% if @post.get('oembed').src: %>
-        <div class="video-container">
-            <iframe  width="430px" height="242px" style="visibility:hidden;" onload="this.style.visibility = 'visible';" scrolling="no" seamless class="article-video" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="true" >
-            </iframe>
-        </div>
+    <% if @post.get('oembed'): %>
+        <% if @post.get('oembed').src: %>
+            <div class="video-container">
+                <iframe  width="430px" height="242px" style="visibility:hidden;" onload="this.style.visibility = 'visible';" scrolling="no" seamless class="article-video" src=<%= @post.get('oembed').src %> frameborder="0" allowfullscreen="true" >
+                </iframe>
+            </div>
+        <% end %>
     <% end %>
-<% end %>
 
     <p class="summary">
-  <% if @post.get('icon'): %>
-    <a class="icon" href="<%= @post.get('url') %>" target="_blank">
-      <img src="<%= @post.get('icon') %>">
-    </a>
-  <% end %>
-    <% if @post.get('summary'): %>
-      <%= @post.truncatedSummary(600) %>
+        <% if @post.get('icon'): %>
+            <a class="icon" href="<%= @post.get('url') %>" target="_blank">
+                <img src="<%= @post.get('icon') %>">
+            </a>
+        <% end %>
+        <% if @post.get('summary'): %>
+            <%= @post.truncatedSummary(700) %>
+        <% end %>
+        <a class="me-shume" itemprop="isBasedOnUrl" href="<%= @post.get('url') %>" target="_blank">lexo të plotë</a>
 
-  <% end %>
  </p>
 
 </section>

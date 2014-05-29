@@ -52,6 +52,8 @@
                 <p class="summary">
                     <%= @post.truncatedSummary(600) %>
                 </p>
+                <a class="me-shume" itemprop="isBasedOnUrl" href="<%= @post.get('url') %>" target="_blank">lexo të plotë</a>
+
             <% end %>
         </span>
 
