@@ -25,6 +25,7 @@ module Brisk
       def parse(document)
 
         document.css(REMOVE_ID).remove
+        document.css(REMOVE_CLASS).remove
 
         @logger.info("INPUT START=======================================")
         @logger.info(document.inspect)
