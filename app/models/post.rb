@@ -222,7 +222,7 @@ module Brisk
         psummary         = Parsers::Summary.parse(read_parsed, nil)
         self.summary     = microdata['articleBody'] || (psummary.to_s.length > description.to_s.length ? psummary : description)
         self.summary.gsub!(/\s+/, " ").to_s.strip!
-        self.body        = read_parsed || ''
+        self.body        = read_parsed.inner_text.strip || ''
 
           self.link_icons  = Parsers::LinkIcon.parse(document)
 
