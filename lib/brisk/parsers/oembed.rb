@@ -45,6 +45,7 @@ module Brisk
                   if video[attr].include?(host)
                     uri = URI(video[attr])
                     query = uri.query
+                    if query
                     query_parts = CGI::parse(query)
                     query_parts = query_parts.each { |k, v|
                       query_parts[k] = v.first
@@ -56,9 +57,13 @@ module Brisk
                     uri.query = query
 
                     properties['src'] = uri.to_s
+                    else
+                      properties['src'] = uri.to_s
+                    end
                     videos.remove
                     ("PROPERTIES  :" + properties.inspect)
                     return properties
+
                   end
                 }
               end
