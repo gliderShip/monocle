@@ -11,7 +11,7 @@ module Brisk
       NEGATIVE = /(comment|meta|footer|footnote|info|before|stats)/
       POSITIVE = /((^|\\s)(post|hentry|entry[-]?(content|text|body)?|article[-]?(content|text|body)?)(\\s|$))/
 
-      REMOVE_TAG = 'h1, h2, h3, h4, h5, pre, code, before, stats, ul, link'
+      REMOVE_TAG = 'header, h1, h2, h3, h4, h5, pre, code, before, stats, ul, link'
       REMOVE_CLASS = 'div div[class*="fontbox"], [class*="-meta"], body *[class*="header"], [class*="before"], body *[class*="stats"], [class*="date"], [class*="img"], [class="reader"], [class*="skip"], [class*="tools"], [class*="share"], [class*="history"]'
       REMOVE_ID = '[id*="error"], [id*="see-also"], [id*="article-image"], [id*="-meta"], [id*="before"], [id*="stats"], [id*="tools"], [id*="share"]'
 
