@@ -52,7 +52,7 @@ module Brisk
                       query_parts[k] = 217 if k == "height" || k == "h"
                     }
 
-                    query = query_parts.to_query
+                    query = query_parts.to_param
                     uri.query = query
 
                     properties['src'] = uri.to_s
