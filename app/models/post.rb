@@ -39,7 +39,7 @@ module Brisk
         end
 
         def popular
-          order(:score.desc)
+          order(:score.desc, :published_at.desc)
         end
 
         def newest

@@ -43,12 +43,19 @@ module Brisk
               if video[attr]
                 VIDEO_HOSTS.each { |host|
                   if video[attr].include?(host)
-                    properties['src'] = video[attr]
-                    if properties['src'].include?('?')
-                      properties['src'] += '&width=430&height=217'
-                    else
-                      properties['src'] += '?width=430&height=217'
-                    end
+                    uri = URI(video[attr])
+                    query = uri.query
+                    query_parts = CGI::parse(query)
+                    query_parts = query_parts.each { |k, v|
+                      query_parts[k] = v.first
+                      query_parts[k] = 430 if k == "width" || k == "w"
+                      query_parts[k] = 217 if k == "height" || k == "h"
+                    }
+
+                    query = query_parts.to_query
+                    uri.query = query
+
+                    properties['src'] = uri.to_s
                     videos.remove
                     ("PROPERTIES  :" + properties.inspect)
                     return properties
