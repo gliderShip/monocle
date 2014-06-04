@@ -13,6 +13,7 @@ module Brisk
       VIDEO_HOSTS = ['youtube', 'youtu', 'vimeo', 'video', 'embed']
 
       VIDEO_CSS = ['meta[property="og:video"]',
+                   'iframe[src*="youtube"]',
                    'iframe[src]',
                    'object[type="application/x-shockwave-flash"]',
                    'textarea[id="iframe-code"]'
@@ -44,6 +45,12 @@ module Brisk
                 VIDEO_HOSTS.each { |host|
                   if video[attr].include?(host)
                     uri = URI(video[attr])
+
+                    if uri.to_s.include?("video.top-channel.tv")
+                      document = Nokogiri::HTML(open(uri))
+                      return parse(document)
+                    end
+
                     query = uri.query
                     if query
                     query_parts = CGI::parse(query)
