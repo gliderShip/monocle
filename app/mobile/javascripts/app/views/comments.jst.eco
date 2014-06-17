@@ -50,7 +50,7 @@
 
             <% if @post.get('summary'): %>
                 <p class="summary">
-                    <%= @post.truncatedSummary(600) %>
+                    <%= @post.truncatedSummary(700) %>
                 </p>
                 <a class="me-shume" itemprop="isBasedOnUrl" href="<%= @post.get('url') %>" target="_blank">lexo të plotë</a>
 

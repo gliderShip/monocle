@@ -42,7 +42,7 @@
             </a>
         <% end %>
         <% if @post.get('summary'): %>
-            <%= @post.truncatedSummary(700) %>
+            <%= @post.truncatedSummary(800) %>
         <% else: %>
             Nuk është e mundur të ekstraktojmë një permbledhje të përshtatshëme për këtë artikull.
             Ju lutem klikoni linkun më poshte për të lexuar artikullin origjinal në faqen përkatëse.<br>
