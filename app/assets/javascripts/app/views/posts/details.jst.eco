@@ -24,7 +24,34 @@
         <%= @post.get('user_handle') %>
       </a>
     </span>
+
+    <!-- AddToAny BEGIN -->
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" style="float: right;">
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_email"></a>
+    <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=www.albanania.com&amp;linkname="></a>
     </div>
+
+<a class="a2a_svg a2a_s_facebook" href="https://www.facebook.com/dialog/feed?app_id=254483801368089&
+                                           link=http://glider.ngrok.com/posts/<%= @post.get('slug') %>&
+                                           picture='http://www.hdwallpapers.in/walls/green_dew_drop-wide.jpg'&
+                                           source: 'https://www.youtube.com/v/1CE6W5BubQo?version=3&autohide=1&autoplay=1'&
+                                           name=<%= @post.get('title') %>&
+                                           caption=<%= @post.get('url') %>&
+                                           description=<%= @post.truncatedSummary(700) %>&
+                                           redirect_uri=http://glider.ngrok.com/posts/<%= @post.get('slug') %>&
+                                           display=popup" style=" border-radius: 14%; float: right;"></a>
+
+    <script type="text/javascript">
+    var a2a_config = a2a_config || {};
+    a2a_config.linkurl = "www.albanania.com";
+    </script>
+    <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
+
+    </div>
+
 
     <% if @post.get('oembed'): %>
         <% if @post.get('oembed').src: %>
@@ -48,7 +75,6 @@
             Ju lutem klikoni linkun më poshte për të lexuar artikullin origjinal në faqen përkatëse.<br>
         <% end %>
         <a class="me-shume" itemprop="isBasedOnUrl" href="<%= @post.get('url') %>" target="_blank">lexo të plotë</a>
-
- </p>
+    </p>
 
 </section>
