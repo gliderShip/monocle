@@ -44,7 +44,13 @@ module Brisk
               if video[attr]
                 VIDEO_HOSTS.each { |host|
                   if video[attr].include?(host)
-                    uri = URI(video[attr])
+
+                    v_src = video[attr];
+                    if v_src.start_with?('//')
+                      v_src = 'http:' + v_src;
+                    end
+
+                    uri = URI(v_src)
 
                     if uri.to_s.include?("video.top-channel.tv")
                       document = Nokogiri::HTML(open(uri))

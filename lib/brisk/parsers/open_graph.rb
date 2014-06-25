@@ -68,7 +68,12 @@ module Brisk
         end
 
         if openGraph['og:type'].to_s.include?("video")
-          openGraph['v:src'] = find_video_src(base);
+          v_src = find_video_src(base);
+          if v_src.start_with?('//')
+            v_src = 'http:' + v_src;
+          end
+          openGraph['v:src'] = v_src;
+
         end
 
         @logger.info openGraph.inspect

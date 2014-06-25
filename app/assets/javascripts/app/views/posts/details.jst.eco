@@ -33,15 +33,21 @@
     <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=www.albanania.com&amp;linkname="></a>
     </div>
 
-<a class="a2a_svg a2a_s_facebook" href="https://www.facebook.com/dialog/feed?app_id=254483801368089&
-                                           link=http://glider.ngrok.com/posts/<%= @post.get('slug') %>&
-                                           picture='http://www.hdwallpapers.in/walls/green_dew_drop-wide.jpg'&
-                                           source: 'https://www.youtube.com/v/1CE6W5BubQo?version=3&autohide=1&autoplay=1'&
-                                           name=<%= @post.get('title') %>&
-                                           caption=<%= @post.get('url') %>&
-                                           description=<%= @post.truncatedSummary(700) %>&
-                                           redirect_uri=http://glider.ngrok.com/posts/<%= @post.get('slug') %>&
-                                           display=popup" style=" border-radius: 14%; float: right;"></a>
+<a class="a2a_svg a2a_s_facebook" href="https://www.facebook.com/dialog/feed?
+                                           app_id=254483801368089
+                                           &link=http://glider.ngrok.com/posts/<%= @post.get('slug') %>
+                                           <% if @post.get('oembed'): %>
+                                                <% if @post.get('oembed').src: %>
+                                                &source=<%= @post.get('oembed').src %>
+                                                <% end %>
+                                           <% end %>
+
+                                           &picture=<%= @post.get('preview_url') %>
+                                           &name=<%= @post.get('title') %>
+                                           &caption=<%= @post.get('url') %>
+                                           &description=<%= @post.truncatedSummary(700) %>
+                                           &redirect_uri=http://glider.ngrok.com/posts/<%= @post.get('slug') %>
+                                           &display=popup" style=" border-radius: 14%; float: right;"></a>
 
     <script type="text/javascript">
     var a2a_config = a2a_config || {};

@@ -166,6 +166,9 @@ module Brisk
         properties = parse_object(WEB_PAGE, document).merge(parse_creative_work(document))
         if properties['contentUrl'].to_s.include?('.mp4')
           properties['videoUrl'] = properties['contentUrl']
+          if properties['videoUrl'].start_with?('//')
+            properties['videoUrl'] = 'http:' + properties['videoUrl'];
+          end
         else
           properties['videoUrl'] = '';
         end
