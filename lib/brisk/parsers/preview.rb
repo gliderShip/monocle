@@ -14,7 +14,7 @@ module Brisk
       ]
 
       IMG_RMV =["reklama", ".png", ".gif", "blank", "banner", "subscribe", "transparent", "placeholder", "webtrekk", "noscript", "tradedoubler", "sample"]
-      REMOVE = '[class*="sidepanel"], [id*="sidepanel"]'
+      REMOVE = '[class*="sidepanel"], [id*="sidepanel"], [class="fotomajtas"], [class*="newsreel"]'
 
       $image_pos = 50
 
